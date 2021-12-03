@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, FC } from "react";
+import { Box, Container, Theme } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
+import { makeStyles } from "@mui/styles";
 
-function App() {
+import { Home, Recipe } from "./views";
+import { Appbar, Menu } from "./components";
+import { drawerWidth } from "./core";
+
+const useStyles = makeStyles((theme: Theme) => ({
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: 0,
+  },
+  contentShift: {
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: drawerWidth,
+  },
+}));
+
+const App: FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Appbar onClick={handleClick} />
+      <Menu open={open} />
+      <main className={`${classes.content} ${open && classes.contentShift}`}>
+        <Container>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="recipe" element={<Recipe />} />
+          </Routes>
+        </Container>
+      </main>
+    </Box>
   );
-}
+};
 
 export default App;
