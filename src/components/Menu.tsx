@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Drawer,
@@ -14,8 +14,14 @@ import { makeStyles } from "@mui/styles";
 import { drawerWidth } from "core";
 import { colors } from "theme";
 import { NeoContainer } from "components";
+import { UIContext } from "contexts";
 
 const useStyles = makeStyles(() => ({
+  root: {
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -31,27 +37,17 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const useClasses = makeStyles(() => ({
-  root: {
-    "&:hover": {
-      backgroundColor: "transparent",
-    },
-  },
-}));
+export const Menu: FC = () => {
+  const { drawerOpen } = useContext(UIContext);
 
-interface IMenu {
-  open: boolean;
-}
-
-export const Menu: FC<IMenu> = ({ open }) => {
-  const classes = { ...useStyles(), ...useClasses() };
+  const classes = useStyles();
   const navigate = useNavigate();
 
   return (
     <Drawer
       className={classes.drawer}
       variant="persistent"
-      open={open}
+      open={drawerOpen}
       classes={{
         paper: classes.drawerPaper,
       }}

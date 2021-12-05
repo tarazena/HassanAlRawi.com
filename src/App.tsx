@@ -1,11 +1,13 @@
-import { useState, FC } from "react";
+import { FC, useContext } from "react";
 import { Box, Container, Theme } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
+import clsx from "clsx";
 
 import { Home, Recipe } from "./views";
 import { Appbar, Menu } from "./components";
 import { drawerWidth } from "./core";
+import { UIContext } from "contexts";
 
 const useStyles = makeStyles((theme: Theme) => ({
   content: {
@@ -27,18 +29,19 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 const App: FC = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const { drawerOpen } = useContext(UIContext);
 
   const classes = useStyles();
+
   return (
     <Box>
-      <Appbar onClick={handleClick} />
-      <Menu open={open} />
-      <main className={`${classes.content} ${open && classes.contentShift}`}>
+      <Appbar />
+      <Menu />
+      <main
+        className={clsx(classes.content, {
+          [classes.contentShift]: drawerOpen,
+        })}
+      >
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />

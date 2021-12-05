@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { AppBar, Grid, Theme, Toolbar } from "@mui/material";
 import { MenuSharp } from "@mui/icons-material";
 import { makeStyles } from "@mui/styles";
@@ -6,13 +6,15 @@ import { makeStyles } from "@mui/styles";
 import { colors } from "theme";
 import { NeoButton, NeoIconButton } from "components";
 import { drawerWidth } from "core";
+import clsx from "clsx";
+import { UIContext } from "contexts";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: `${theme.zIndex.drawer + 1} !important`,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -28,11 +30,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-interface IAppBar {
-  onClick: () => void;
-}
+export const Appbar: FC = () => {
+  const { drawerOpen, toggleDrawer } = useContext(UIContext);
 
-export const Appbar: FC<IAppBar> = ({ onClick }) => {
   const classes = useStyles();
 
   return (
@@ -41,11 +41,13 @@ export const Appbar: FC<IAppBar> = ({ onClick }) => {
         position="fixed"
         color="transparent"
         elevation={0}
-        className={`${classes.appBar}`}
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: drawerOpen,
+        })}
       >
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between">
-            <NeoIconButton onClick={onClick}>
+            <NeoIconButton onClick={() => toggleDrawer(!drawerOpen)}>
               <MenuSharp
                 style={{
                   color: colors.EasternBlue,

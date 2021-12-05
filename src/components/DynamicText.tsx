@@ -22,7 +22,7 @@ const useStyles = ({ left, right }: Shadow, text: ITextType) => {
 
   return makeStyles((theme: Theme) => ({
     animatedItem: {
-      animation: `$textEffect 2000ms ${theme.transitions.easing.easeInOut}`,
+      animation: `$textEffect 3000ms ${theme.transitions.easing.easeInOut}`,
       color: colors.AthensGray,
       fontWeight: 900,
       [theme.breakpoints.down("sm")]: {
@@ -48,8 +48,11 @@ const useStyles = ({ left, right }: Shadow, text: ITextType) => {
       "25%": {
         textShadow: targetTextShadow,
       },
-      "100%": {
+      "75%": {
         textShadow: targetTextShadow,
+      },
+      "100%": {
+        textShadow: initialTextShadow,
       },
     },
   }))();
@@ -73,17 +76,22 @@ export const DynamicText: FC<IDynamicText> = ({ text }) => {
           setCurrentText(text[index + 1]);
           break;
       }
-    }, 2000);
+    }, 5000);
   }, [text, currentText]);
 
   return (
-    <Typography
-      variant="h1"
-      className={clsx(classes.animatedItem, {
-        [classes.emoji]: currentText.type === "emoji",
-      })}
-    >
-      {currentText.text}
-    </Typography>
+    <span>
+      {currentText.text.split("").map((l, i) => (
+        <Typography
+          variant="h1"
+          key={`a${i}`}
+          component="span"
+          className={clsx(classes.animatedItem)}
+          style={{ animationDelay: `${0.5 + i / 10}s` }}
+        >
+          {l}
+        </Typography>
+      ))}
+    </span>
   );
 };

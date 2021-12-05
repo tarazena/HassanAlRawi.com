@@ -39,7 +39,7 @@ const useClasses = (
         transition: "box-shadow 0.3s ease-in-out",
       },
     },
-  }));
+  }))();
 
 export const NeoContainer: FC<INeoContainer> = ({
   styleOverride,
@@ -51,23 +51,15 @@ export const NeoContainer: FC<INeoContainer> = ({
   shadowColor = "AthensGray",
   shadowIntensity = 0.15,
 }) => {
-  const shadow = {
-    left: NeomorphColorVariant[shadowColor](shadowIntensity).left,
-    right: NeomorphColorVariant[shadowColor](shadowIntensity).right,
-  };
-  const classes = useClasses(
-    shadowDepthX,
-    shadowDepthY,
-    shadow.left,
-    shadow.right
-  )();
+  const { left, right } = NeomorphColorVariant[shadowColor](shadowIntensity);
+  const classes = useClasses(shadowDepthX, shadowDepthY, left, right);
+
   return (
     <div
       className={`${classes.root}`}
       style={{
         width: fullWidth ? "100%" : "auto",
         height: fullHeight ? "100%" : "auto",
-        // padding: '5px 0px',
         borderRadius: 40,
         ...styleOverride,
       }}
