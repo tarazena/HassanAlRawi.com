@@ -21,17 +21,22 @@ const useStyles = ({ left, right }: Shadow, text: ITextType) => {
   )}px ${left},-${0}px -${0}px ${Math.ceil((0 + 0) / 2)}px ${right}`;
 
   return makeStyles((theme: Theme) => ({
+    root: {
+      [theme.breakpoints.down("sm")]: {
+        marginTop: 20,
+      },
+    },
     animatedItem: {
       animation: `$textEffect 3000ms ${theme.transitions.easing.easeInOut}`,
       color: colors.AthensGray,
       fontWeight: 900,
       [theme.breakpoints.down("sm")]: {
-        fontSize: 50,
+        fontSize: 25,
       },
     },
     emoji: {
       color: "inherit",
-      fontSize: 58,
+      fontSize: 29,
       "&::before": {
         color: "transparent",
         textShadow: `0 0 0 ${colors.AthensGray}`,
@@ -80,7 +85,7 @@ export const DynamicText: FC<IDynamicText> = ({ text }) => {
   }, [text, currentText]);
 
   return (
-    <span>
+    <span className={clsx(classes.root)}>
       {currentText.text.split("").map((l, i) => (
         <Typography
           variant="h1"

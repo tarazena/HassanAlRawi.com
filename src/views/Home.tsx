@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import { Box, Grid, Typography } from "@mui/material";
-import { DynamicText, NeoAnimator, NeoContainer } from "components";
+import { ActiveNeoAnimator, DynamicText, NeoContainer } from "components";
 import { ITextType } from "interfaces";
+import { UIContext } from "contexts";
 
 export const Home: FC = () => {
   const text: ITextType[] = [
@@ -24,29 +25,41 @@ export const Home: FC = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={5}>
           <NeoContainer styleOverride={{ padding: "10px 40px 20px" }}>
-            <Typography variant="h2">Hi, my name is Hassan, I'm</Typography>
+            <Typography variant="h2" textAlign={"end"}>
+              Hi, my name is Hassan, I'm
+            </Typography>
           </NeoContainer>
         </Grid>
-        <Grid container item xs={12} sm={6} justifyContent="center">
+        <Grid container item xs={12} sm={7} justifyContent="start" pl={5}>
           <DynamicText text={text} />
         </Grid>
-        {new Array(8).fill("").map((_c, i) => (
-          <Grid
-            key={`l${i}`}
-            container
-            item
-            xs={12}
-            sm={12}
-            mt={i === 0 ? 20 : 0}
-            py={1}
-            justifyContent={i % 2 === 0 ? "left" : "right"}
-          >
-            <NeoAnimator delay={(i + 1) * 0.5} />
-          </Grid>
-        ))}
       </Grid>
+      <Animation1 />
     </Box>
+  );
+};
+
+const Animation1: FC = () => {
+  const { scrollLocation } = useContext(UIContext);
+
+  return (
+    <Grid container item xs={12}>
+      {new Array(6).fill("").map((_c, i) => (
+        <Grid
+          key={`l${i}`}
+          container
+          item
+          xs={12}
+          sm={12}
+          mt={i === 0 ? 20 : 0}
+          py={1}
+          justifyContent={i % 2 === 0 ? "left" : "right"}
+        >
+          <ActiveNeoAnimator trigger={scrollLocation > i * 10 + 300} />
+        </Grid>
+      ))}
+    </Grid>
   );
 };

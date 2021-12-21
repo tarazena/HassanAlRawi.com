@@ -8,7 +8,7 @@ const useClasses = (
   shadowDepthY: number,
   leftColor: string,
   rightColor: string,
-  transitionDelay: string
+  transitionDelay?: string
 ) =>
   makeStyles(() => ({
     root: {
@@ -36,11 +36,11 @@ const useClasses = (
     },
   }))();
 
-interface INeoAnimator {
+interface IDelayNeoAnimator {
   delay: number;
 }
 
-export const NeoAnimator: FC<INeoAnimator> = ({ delay }) => {
+export const DelayNeoAnimator: FC<IDelayNeoAnimator> = ({ delay }) => {
   const { left, right } = NeomorphColorVariant["AthensGray"](0.15);
   const [a, setA] = useState(false);
   const classes = useClasses(15, 15, left, right, `${delay}s`);
@@ -50,6 +50,29 @@ export const NeoAnimator: FC<INeoAnimator> = ({ delay }) => {
       setA(true);
     }, delay * 1000);
   }, [delay, setA]);
+
+  return (
+    <div
+      className={clsx(classes.root, {
+        [classes.animated]: a,
+      })}
+    />
+  );
+};
+
+interface IActiveNeoAnimator {
+  trigger: boolean;
+}
+
+export const ActiveNeoAnimator: FC<IActiveNeoAnimator> = ({ trigger }) => {
+  const { left, right } = NeomorphColorVariant["AthensGray"](0.15);
+  const [a, setA] = useState(false);
+  const classes = useClasses(15, 15, right, left);
+
+  useEffect(() => {
+    setA(trigger);
+  }, [trigger, setA]);
+
   return (
     <div
       className={clsx(classes.root, {
