@@ -1,12 +1,13 @@
 import { FC, useContext } from "react";
 import { AppBar, Grid, Theme, Toolbar } from "@mui/material";
-import { MenuSharp } from "@mui/icons-material";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { makeStyles } from "@mui/styles";
-
-import { colors } from "theme";
-import { NeoButton, NeoIconButton } from "components";
-import { drawerWidth } from "core";
 import clsx from "clsx";
+
+import { colors } from "core/theme";
+import { NeoIconButton } from "./";
+import { drawerWidth } from "core";
 import { UIContext } from "contexts";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -48,7 +49,8 @@ export const Appbar: FC = () => {
         <Toolbar>
           <Grid container direction="row" justifyContent="space-between">
             <NeoIconButton onClick={() => toggleDrawer(!drawerOpen)}>
-              <MenuSharp
+              <FontAwesomeIcon
+                icon={faBars}
                 style={{
                   color: colors.EasternBlue,
                   display: "block",
@@ -56,7 +58,7 @@ export const Appbar: FC = () => {
                 }}
               />
             </NeoIconButton>
-            <NeoButton>Login</NeoButton>
+            {/* <NeoButton>Login</NeoButton> */}
           </Grid>
         </Toolbar>
       </AppBar>

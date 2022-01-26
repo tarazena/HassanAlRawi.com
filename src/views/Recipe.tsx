@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Grid, IconButton, Typography } from "@mui/material";
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Pinterest,
-  WhatsApp,
-} from "@mui/icons-material";
+import { Grid, Typography } from "@mui/material";
+// import {
+//   Facebook,
+//   Twitter,
+//   Instagram,
+//   Pinterest,
+//   WhatsApp,
+// } from "@mui/icons-material";
 
 import { NeoContainer, PillContainer } from "components";
 
@@ -68,7 +68,7 @@ export const Recipe: FC = () => {
           </Grid>
           <Grid item xs={6} style={{ marginTop: 30 }}>
             <PillContainer style={{ padding: 0 }}>
-              <IconButton>
+              {/* <IconButton>
                 <Facebook />
               </IconButton>
               <IconButton>
@@ -82,7 +82,7 @@ export const Recipe: FC = () => {
               </IconButton>
               <IconButton>
                 <WhatsApp />
-              </IconButton>
+              </IconButton> */}
             </PillContainer>
           </Grid>
           <Grid

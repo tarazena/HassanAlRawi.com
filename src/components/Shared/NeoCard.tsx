@@ -10,7 +10,7 @@ import {
   Hidden,
 } from "@mui/material";
 
-import { colors } from "theme";
+import { colors } from "core/theme";
 import { PillContainer, NeoContainer } from "components";
 import { useNavigate } from "react-router-dom";
 

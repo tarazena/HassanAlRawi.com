@@ -1,10 +1,9 @@
 import { FC, useEffect, useState } from "react";
 import { Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import clsx from "clsx";
 
-import { colors, NeomorphColorVariant } from "theme";
-import { ITextType, Shadow } from "interfaces";
+import { colors, NeomorphColorVariant } from "core/theme";
+import { ITextType, Shadow } from "core/interfaces";
 
 interface IDynamicText {
   text: ITextType[];
@@ -27,11 +26,11 @@ const useStyles = ({ left, right }: Shadow, text: ITextType) => {
       },
     },
     animatedItem: {
-      animation: `$textEffect 3000ms ${theme.transitions.easing.easeInOut}`,
+      animation: `$textEffect 3000ms ${theme.transitions.easing.sharp}`,
       color: colors.AthensGray,
       fontWeight: 900,
       [theme.breakpoints.down("sm")]: {
-        fontSize: 25,
+        fontSize: '40px !important',
       },
     },
     emoji: {
@@ -85,13 +84,13 @@ export const DynamicText: FC<IDynamicText> = ({ text }) => {
   }, [text, currentText]);
 
   return (
-    <span className={clsx(classes.root)}>
+    <span className={classes.root}>
       {currentText.text.split("").map((l, i) => (
         <Typography
           variant="h1"
           key={`a${i}`}
           component="span"
-          className={clsx(classes.animatedItem)}
+          className={classes.animatedItem}
           style={{ animationDelay: `${0.5 + i / 10}s` }}
         >
           {l}

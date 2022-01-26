@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { Colors, NeomorphType } from "interfaces";
+import { Colors, NeomorphType } from "core/interfaces";
 
 import { colors } from "./colors";
 

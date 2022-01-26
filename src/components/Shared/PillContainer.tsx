@@ -1,14 +1,16 @@
-import { CSSProperties, FC } from "react";
+import { FC } from "react";
 import { Grid } from "@mui/material";
 
 import { NeoContainer } from "./NeoContainer";
+import { NeoContainerType } from ".";
 
-interface IPillContainer {
-  style?: CSSProperties;
-}
+interface IPillContainer extends NeoContainerType {}
 
-export const PillContainer: FC<IPillContainer> = ({ children, style }) => (
-  <NeoContainer styleOverride={{ borderRadius: 30, padding: 0, ...style }}>
+export const PillContainer: FC<IPillContainer> = ({
+  children,
+  ...neoContainerStyles
+}) => (
+  <NeoContainer {...neoContainerStyles}>
     <Grid container direction="row" justifyContent="space-evenly">
       {/* <Grid item>
         <Button color="primary"  style={{ borderTopLeftRadius: 15, borderBottomLeftRadius: 15, padding: 5 }}>1</Button>

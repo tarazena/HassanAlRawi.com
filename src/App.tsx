@@ -1,13 +1,13 @@
 import { FC, useContext } from "react";
-import { Box, Container, Theme } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 
 import { Home, Recipe } from "./views";
-import { Appbar, Menu } from "./components";
+// import { Appbar, Menu } from "./components";
 import { drawerWidth } from "./core";
 import { UIContext } from "contexts";
+import { Container, Theme } from "@mui/material";
 
 const useStyles = makeStyles((theme: Theme) => ({
   content: {
@@ -34,22 +34,18 @@ const App: FC = () => {
   const classes = useStyles();
 
   return (
-    <Box>
-      <Appbar />
-      <Menu />
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: drawerOpen,
-        })}
-      >
-        <Container>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="recipe" element={<Recipe />} />
-          </Routes>
-        </Container>
-      </main>
-    </Box>
+    <main
+      className={clsx(classes.content, {
+        [classes.contentShift]: drawerOpen,
+      })}
+    >
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="recipe" element={<Recipe />} />
+        </Routes>
+      </Container>
+    </main>
   );
 };
 

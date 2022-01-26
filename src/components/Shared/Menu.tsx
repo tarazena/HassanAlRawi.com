@@ -8,11 +8,12 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
-import { Inbox, Mail } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInbox, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { makeStyles } from "@mui/styles";
 
 import { drawerWidth } from "core";
-import { colors } from "theme";
+import { colors } from "core/theme";
 import { NeoContainer } from "components";
 import { UIContext } from "contexts";
 
@@ -76,7 +77,9 @@ export const Menu: FC = () => {
                 onClick={() => navigate("/")}
               >
                 <ListItemIcon>
-                  {index % 2 === 0 ? <Inbox /> : <Mail />}
+                  <FontAwesomeIcon
+                    icon={index % 2 === 0 ? faInbox : faEnvelope}
+                  />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>

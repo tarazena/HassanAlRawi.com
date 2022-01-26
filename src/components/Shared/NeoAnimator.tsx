@@ -1,7 +1,7 @@
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
-import { NeomorphColorVariant } from "theme";
+import { NeomorphColorVariant } from "core/theme";
 
 const useClasses = (
   shadowDepthX: number,

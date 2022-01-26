@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 import { IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
@@ -6,6 +6,7 @@ import { NeoContainer } from "components";
 
 interface INeoIconButton {
   onClick: () => void;
+  style?: CSSProperties;
 }
 
 const useClasses = makeStyles(() => ({
@@ -16,7 +17,11 @@ const useClasses = makeStyles(() => ({
   },
 }));
 
-export const NeoIconButton: FC<INeoIconButton> = ({ children, onClick }) => {
+export const NeoIconButton: FC<INeoIconButton> = ({
+  children,
+  onClick,
+  style,
+}) => {
   const classes = useClasses();
   return (
     <IconButton
@@ -25,6 +30,7 @@ export const NeoIconButton: FC<INeoIconButton> = ({ children, onClick }) => {
       aria-label="menu"
       onClick={onClick}
       className={classes.root}
+      style={style}
     >
       <NeoContainer
         shadowDepthY={6}
