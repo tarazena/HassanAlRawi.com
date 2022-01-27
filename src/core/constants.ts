@@ -280,7 +280,7 @@ export const WHAT_I_USE: IHeader[] = [
     technologies: CLOUD,
   },
   {
-    title: "Interested in or Currently Learning",
+    title: "Interested in - Learning",
     technologies: CURRENTLY_LEARNING,
   },
 ];

@@ -36,7 +36,6 @@ export const NeoCard: FC = () => {
             shadowDepthX={6}
             shadowDepthY={6}
             styleOverride={{ borderRadius: 15, padding: 0 }}
-            shadowColor={"AthensGray"}
             shadowIntensity={0.4}
           >
             <CardMedia

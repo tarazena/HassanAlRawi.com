@@ -1,6 +1,6 @@
 import { Grid, Link, TextField, Typography } from "@mui/material";
 import { FC, useCallback, useState } from "react";
-import { NeoButton, NeoContainer } from "./shared";
+import { NeoButton, NeoContainer } from "components";
 
 interface Form {
   name: string;
@@ -40,10 +40,10 @@ export const Contact: FC = () => {
       spacing={4}
       id="contact"
     >
-      <Grid item container xs={12} justifyContent={"center"}>
+      <Grid item container xs={11} sm={12} justifyContent={"center"}>
         <Typography variant="h4">Contact me</Typography>
       </Grid>
-      <Grid item container xs={12} justifyContent={"center"}>
+      <Grid item container xs={11} sm={12} justifyContent={"center"}>
         <Typography variant="body1">
           You can email me at{" "}
           <Link href="mailto:hassan@iffproductions.com">
@@ -52,7 +52,7 @@ export const Contact: FC = () => {
           or you can use the form below and I will reach out to you
         </Typography>
       </Grid>
-      <Grid item container xs={12} sm={8} justifyContent={"center"} mb={4}>
+      <Grid item container xs={11} sm={8} justifyContent={"center"} mb={4}>
         <NeoContainer
           fullHeight
           p={3}

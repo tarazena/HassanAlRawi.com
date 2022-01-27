@@ -1,23 +1,35 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 import { colors, NeomorphColorVariant } from "core/theme";
-import { ITextType, Shadow } from "core/interfaces";
+import { Colors, ITextType, Shadow } from "core/interfaces";
+import { getBoxShadow } from "core";
+import { UIContext } from "contexts";
 
 interface IDynamicText {
   text: ITextType[];
 }
-const useStyles = ({ left, right }: Shadow, text: ITextType) => {
-  const s = 6; // Shadow value
+const useStyles = ({ left, right }: Shadow, text: ITextType, color: Colors) => {
+  const shadowValue = 6; // Shadow value
 
-  const targetTextShadow = `${s}px ${s}px ${Math.ceil(
-    (s + s) / 2
-  )}px ${left},-${s}px -${s}px ${Math.ceil((s + s) / 2)}px ${right}`;
-
-  const initialTextShadow = `${0}px ${0}px ${Math.ceil(
-    (0 + 0) / 2
-  )}px ${left},-${0}px -${0}px ${Math.ceil((0 + 0) / 2)}px ${right}`;
+  const targetTextShadow = (shadowValue: number) =>
+    getBoxShadow([
+      {
+        shadowValueX: shadowValue,
+        shadowValueY: shadowValue,
+        color: left,
+      },
+      {
+        shadowValueX: -shadowValue,
+        shadowValueY: -shadowValue,
+        color: right,
+      },
+    ]);
+  const initialTextShadow = getBoxShadow([
+    { shadowValueX: 0, shadowValueY: 0, color: left },
+    { shadowValueX: 0, shadowValueY: 0, color: right },
+  ]);
 
   return makeStyles((theme: Theme) => ({
     root: {
@@ -27,22 +39,11 @@ const useStyles = ({ left, right }: Shadow, text: ITextType) => {
     },
     animatedItem: {
       animation: `$textEffect 3000ms ${theme.transitions.easing.sharp}`,
-      color: colors.AthensGray,
+      color: `${colors[color]} !important`,
       fontWeight: 900,
       [theme.breakpoints.down("sm")]: {
-        fontSize: '40px !important',
-      },
-    },
-    emoji: {
-      color: "inherit",
-      fontSize: 29,
-      "&::before": {
-        color: "transparent",
-        textShadow: `0 0 0 ${colors.AthensGray}`,
-        position: "absolute",
-        fontSize: parseInt(theme.typography.h1.fontSize?.toString() || "0") + 2,
-        content: `'${text.text}'`,
-        zIndex: -1,
+        animation: `$textEffectSmallScreen 3000ms ${theme.transitions.easing.sharp}`,
+        fontSize: "48px !important",
       },
     },
     "@keyframes textEffect": {
@@ -50,10 +51,24 @@ const useStyles = ({ left, right }: Shadow, text: ITextType) => {
         textShadow: initialTextShadow,
       },
       "25%": {
-        textShadow: targetTextShadow,
+        textShadow: targetTextShadow(shadowValue),
       },
       "75%": {
-        textShadow: targetTextShadow,
+        textShadow: targetTextShadow(shadowValue),
+      },
+      "100%": {
+        textShadow: initialTextShadow,
+      },
+    },
+    "@keyframes textEffectSmallScreen": {
+      "0%": {
+        textShadow: initialTextShadow,
+      },
+      "25%": {
+        textShadow: targetTextShadow(shadowValue / 2),
+      },
+      "75%": {
+        textShadow: targetTextShadow(shadowValue / 2),
       },
       "100%": {
         textShadow: initialTextShadow,
@@ -63,10 +78,11 @@ const useStyles = ({ left, right }: Shadow, text: ITextType) => {
 };
 
 export const DynamicText: FC<IDynamicText> = ({ text }) => {
+  const { color } = useContext(UIContext);
   const [currentText, setCurrentText] = useState(text[0]);
-  const { left, right } = NeomorphColorVariant["AthensGray"](0.3);
+  const { left, right } = NeomorphColorVariant[color](0.3);
 
-  const classes = useStyles({ left, right }, currentText);
+  const classes = useStyles({ left, right }, currentText, color);
 
   useEffect(() => {
     setTimeout(() => {

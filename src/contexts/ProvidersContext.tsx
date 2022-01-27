@@ -6,10 +6,10 @@ import { UIContextProvider } from "contexts";
 
 export const ProvidersContext: FC = ({ children }) => {
   return (
-    <ThemeProvider>
-      <RouterProvider>
-        <UIContextProvider>{children}</UIContextProvider>
-      </RouterProvider>
-    </ThemeProvider>
+    <UIContextProvider>
+      <ThemeProvider>
+        <RouterProvider>{children}</RouterProvider>
+      </ThemeProvider>
+    </UIContextProvider>
   );
 };

@@ -3,28 +3,20 @@ import { Colors, NeomorphType } from "core/interfaces";
 
 import { colors } from "./colors";
 
-export const theme = createTheme({
-  palette: {
-    primary: {
-      main: colors.EasternBlue,
+export const theme = (backgroundColor: Colors) =>
+  createTheme({
+    palette: {
+      background: {
+        default: colors[backgroundColor],
+      },
     },
-    secondary: {
-      main: colors.MorningGlory,
+    typography: {
+      allVariants: {
+        fontFamily: "Manrope, sans-serif;",
+        color: "rgba(0,0,0,0.6)",
+      },
     },
-    error: {
-      main: colors.TexasRose,
-    },
-    background: {
-      default: colors.AthensGray,
-    },
-  },
-  typography: {
-    allVariants: {
-      fontFamily: 'Manrope, sans-serif;',
-      color: 'rgba(0,0,0,0.6)'
-    }
-  }
-});
+  });
 
 export const colorLuminance = (hex: string, lum: number) => {
   // validate hex string

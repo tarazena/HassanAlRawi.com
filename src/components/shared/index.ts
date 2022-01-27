@@ -1,5 +1,4 @@
 export * from './Appbar';
-export * from './Canvas';
 export * from './DynamicText';
 export * from './Footer';
 export * from './Menu';
@@ -9,5 +8,4 @@ export * from './NeoCard';
 export * from './NeoContainer';
 export * from './NeoIconButton';
 export * from './PillContainer';
-export * from './SlidesContainer';
 export * from './TCTextField';

@@ -1,11 +1,12 @@
-import { FC, CSSProperties } from "react";
+import { FC, CSSProperties, useContext } from "react";
 
 import { NeomorphColorVariant } from "core/theme";
-import { Colors } from "core/interfaces";
 import { makeStyles } from "@mui/styles";
 import { Box, BoxTypeMap } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import clsx from "clsx";
+import { getBoxShadow } from "core";
+import { UIContext } from "contexts";
 
 interface INeoContainer {
   styleOverride?: CSSProperties;
@@ -13,7 +14,6 @@ interface INeoContainer {
   shadowDepthY?: number;
   fullWidth?: boolean;
   fullHeight?: boolean;
-  shadowColor?: Colors;
   shadowIntensity?: number;
   invertedShadow?: boolean;
   scaleContentOnHover?: boolean;
@@ -23,34 +23,42 @@ export type NeoContainerType = OverrideProps<BoxTypeMap<{}, "div">, "div"> &
   INeoContainer;
 
 const useClasses = (
-  shadowDepthX: number,
-  shadowDepthY: number,
+  shadowValueX: number,
+  shadowValueY: number,
   leftColor: string,
   rightColor: string,
   invertedShadow?: boolean
-) =>
-  makeStyles(() => ({
+) => {
+  const originalShadow = getBoxShadow([
+    { shadowValueX, shadowValueY, color: leftColor, inset: invertedShadow },
+    {
+      shadowValueX: -shadowValueX,
+      shadowValueY: -shadowValueY,
+      color: rightColor,
+      inset: invertedShadow,
+    },
+  ]);
+
+  const animatedShadow = getBoxShadow([
+    {
+      shadowValueX: shadowValueX * 0.4,
+      shadowValueY: shadowValueY * 0.4,
+      color: leftColor,
+      inset: invertedShadow,
+    },
+    {
+      shadowValueX: -shadowValueX * 0.4,
+      shadowValueY: -shadowValueY * 0.4,
+      color: rightColor,
+      inset: invertedShadow,
+    },
+  ]);
+  return makeStyles(() => ({
     root: {
-      boxShadow: `${
-        invertedShadow ? "inset " : ""
-      }${shadowDepthX}px ${shadowDepthY}px ${Math.ceil(
-        (shadowDepthX + shadowDepthY) / 2
-      )}px ${leftColor},${
-        invertedShadow ? "inset " : ""
-      }-${shadowDepthX}px -${shadowDepthY}px ${Math.ceil(
-        (shadowDepthX + shadowDepthY) / 2
-      )}px ${rightColor}`,
+      boxShadow: originalShadow,
       transition: "box-shadow 0.3s ease-in-out",
       "&:hover": {
-        boxShadow: `${invertedShadow ? "inset " : ""}${shadowDepthX * 0.4}px ${
-          shadowDepthY * 0.4
-        }px ${Math.ceil(
-          (shadowDepthX * 0.4 + shadowDepthY * 0.4) / 2
-        )}px ${leftColor},${invertedShadow ? "inset " : ""}-${
-          shadowDepthX * 0.4
-        }px -${shadowDepthY * 0.4}px ${Math.ceil(
-          (shadowDepthX * 0.4 + shadowDepthY * 0.4) / 2
-        )}px ${rightColor}`,
+        boxShadow: animatedShadow,
         transition: "box-shadow 0.3s ease-in-out",
       },
     },
@@ -61,24 +69,28 @@ const useClasses = (
       },
     },
   }))();
+};
 
 export const NeoContainer: FC<NeoContainerType> = ({
   styleOverride,
   fullWidth,
   fullHeight,
-  shadowDepthX = 15,
-  shadowDepthY = 15,
-  shadowColor = "AthensGray",
-  shadowIntensity = 0.15,
+  shadowDepthX,
+  shadowDepthY,
+  shadowIntensity,
   children,
   invertedShadow,
   scaleContentOnHover,
+  className,
   ...props
 }) => {
-  const { left, right } = NeomorphColorVariant[shadowColor](shadowIntensity);
+  const { color, shadow } = useContext(UIContext);
+  const { left, right } = NeomorphColorVariant[color](
+    shadowIntensity ?? shadow.intensity
+  );
   const classes = useClasses(
-    shadowDepthX,
-    shadowDepthY,
+    shadowDepthX ?? shadow.shadowX,
+    shadowDepthY ?? shadow.shadowY,
     left,
     right,
     invertedShadow
@@ -86,7 +98,7 @@ export const NeoContainer: FC<NeoContainerType> = ({
 
   return (
     <Box
-      className={classes.root}
+      className={`${classes.root} ${className}`}
       style={{
         width: fullWidth ? "100%" : "auto",
         height: fullHeight ? "100%" : "auto",
