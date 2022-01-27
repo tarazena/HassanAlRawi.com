@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Grid } from "@mui/material";
 
 import { NeoContainer } from "./NeoContainer";
-import { NeoContainerType } from ".";
+import { NeoContainerType } from "./NeoContainer";
 
 interface IPillContainer extends NeoContainerType {}
 

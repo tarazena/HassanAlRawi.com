@@ -1,7 +1,10 @@
 import * as functions from "firebase-functions";
 import * as SendGrid from "@sendgrid/mail";
+import * as dotenv from "dotenv";
 
 exports.contact = functions.https.onRequest((request, response) => {
+  dotenv.config();
+
   response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
@@ -11,8 +14,6 @@ exports.contact = functions.https.onRequest((request, response) => {
     response.set("Access-Control-Max-Age", "3600");
     response.status(204).send("");
   } else {
-    SendGrid.setApiKey(process.env.SENDGRID_KEY || "");
-
     if (
       request.body &&
       request.body.name &&
@@ -21,11 +22,12 @@ exports.contact = functions.https.onRequest((request, response) => {
       request.body.message
     ) {
       const data = request.body;
-
+      SendGrid.setApiKey(process.env.SENDGRID_KEY || "");
       SendGrid.send([
         {
           templateId: "d-c2a51996309c48a38e212cb9d87272ca",
           from: "contact@hassanalrawi.com",
+          to: "tarazena@gmail.com",
           dynamicTemplateData: data,
         },
       ])

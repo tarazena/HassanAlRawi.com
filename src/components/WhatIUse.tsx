@@ -1,7 +1,7 @@
 import { Grid, Link, Typography } from "@mui/material";
 import { IHeader, Technology, WHAT_I_USE } from "core";
 import { FC } from "react";
-import { NeoContainer } from "./Shared";
+import { NeoContainer } from "./shared";
 
 export const WhatIUse: FC = () => (
   <Grid

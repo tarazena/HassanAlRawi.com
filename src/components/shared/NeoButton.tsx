@@ -6,6 +6,7 @@ import { NeoContainer, NeoContainerType } from "components";
 
 interface INeoButton extends NeoContainerType {
   onClickEvent?: MouseEventHandler<HTMLButtonElement>;
+  href?: string;
 }
 
 const useClasses = makeStyles(() => ({
@@ -19,6 +20,7 @@ const useClasses = makeStyles(() => ({
 export const NeoButton: FC<INeoButton> = ({
   children,
   onClickEvent,
+  href,
   ...neoContainerProps
 }) => {
   const classes = useClasses();
@@ -28,6 +30,7 @@ export const NeoButton: FC<INeoButton> = ({
       style={{
         borderRadius: 69,
       }}
+      href={href}
       onClick={onClickEvent}
       className={classes.root}
     >

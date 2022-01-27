@@ -1,6 +1,6 @@
 import { Grid, Link, TextField, Typography } from "@mui/material";
 import { FC, useCallback, useState } from "react";
-import { NeoButton, NeoContainer } from "./Shared";
+import { NeoButton, NeoContainer } from "./shared";
 
 interface Form {
   name: string;
@@ -16,18 +16,16 @@ export const Contact: FC = () => {
     subject: "",
     message: "",
   });
+  const [messageSent, setMessageSent] = useState(false);
 
   const handleOnSubmit = useCallback(async () => {
     try {
-      const response = await fetch(
-        "https://us-central1-hassanalrawi-eb46f.cloudfunctions.net/contact",
-        {
-          method: "POST",
-          body: JSON.stringify(formData),
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      console.log(response.body);
+      await fetch("https://www.hassanalrawi.com/contact", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      });
+      setMessageSent(true);
     } catch (e) {
       console.warn(e);
     }
@@ -40,6 +38,7 @@ export const Contact: FC = () => {
       alignContent={"center"}
       justifyContent={"center"}
       spacing={4}
+      id="contact"
     >
       <Grid item container xs={12} justifyContent={"center"}>
         <Typography variant="h4">Contact me</Typography>
@@ -62,83 +61,91 @@ export const Contact: FC = () => {
           shadowDepthX={6}
           shadowDepthY={6}
         >
-          <Grid container justifyContent={"center"}>
-            <Grid container item direction={"row"}>
-              <Grid item xs={6} p={1}>
+          {messageSent ? (
+            <Typography variant="body1" textAlign={"center"}>
+              Your message was delivered, I will contact you shortly
+            </Typography>
+          ) : (
+            <>
+              <Grid container justifyContent={"center"}>
+                <Grid container item direction={"row"}>
+                  <Grid item xs={6} p={1}>
+                    <TextField
+                      id="name"
+                      label="Name"
+                      variant="standard"
+                      fullWidth
+                      value={formData?.name}
+                      onChange={(e) => {
+                        setFormData({
+                          ...formData,
+                          name: e.currentTarget.value,
+                        });
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={6} p={1}>
+                    <TextField
+                      id="email"
+                      label="Email"
+                      variant="standard"
+                      value={formData?.email}
+                      onChange={(e) => {
+                        setFormData({
+                          ...formData,
+                          email: e.currentTarget.value,
+                        });
+                      }}
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} p={1}>
                 <TextField
-                  id="name"
-                  label="Name"
-                  variant="standard"
-                  fullWidth
-                  value={formData?.name}
+                  id="subject"
+                  label="Subject"
+                  value={formData?.subject}
                   onChange={(e) => {
                     setFormData({
                       ...formData,
-                      name: e.currentTarget.value,
+                      subject: e.currentTarget.value,
                     });
                   }}
-                />
-              </Grid>
-              <Grid item xs={6} p={1}>
-                <TextField
-                  id="email"
-                  label="Email"
                   variant="standard"
-                  value={formData?.email}
-                  onChange={(e) => {
-                    setFormData({
-                      ...formData,
-                      email: e.currentTarget.value,
-                    });
-                  }}
                   fullWidth
                 />
               </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} p={1}>
-            <TextField
-              id="subject"
-              label="Subject"
-              value={formData?.subject}
-              onChange={(e) => {
-                setFormData({
-                  ...formData,
-                  subject: e.currentTarget.value,
-                });
-              }}
-              variant="standard"
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={12} p={1}>
-            <TextField
-              id="message"
-              label="Message"
-              variant="standard"
-              fullWidth
-              multiline
-              value={formData?.message}
-              onChange={(e) => {
-                setFormData({
-                  ...formData,
-                  message: e.currentTarget.value,
-                });
-              }}
-              rows={4}
-            />
-          </Grid>
-          <Grid item mt={3} container justifyContent={"center"}>
-            <NeoButton
-              px={4}
-              py={1}
-              onClickEvent={() => {
-                handleOnSubmit();
-              }}
-            >
-              Send
-            </NeoButton>
-          </Grid>
+              <Grid item xs={12} p={1}>
+                <TextField
+                  id="message"
+                  label="Message"
+                  variant="standard"
+                  fullWidth
+                  multiline
+                  value={formData?.message}
+                  onChange={(e) => {
+                    setFormData({
+                      ...formData,
+                      message: e.currentTarget.value,
+                    });
+                  }}
+                  rows={4}
+                />
+              </Grid>
+              <Grid item mt={3} container justifyContent={"center"}>
+                <NeoButton
+                  px={4}
+                  py={1}
+                  onClickEvent={() => {
+                    handleOnSubmit();
+                  }}
+                >
+                  Send
+                </NeoButton>
+              </Grid>
+            </>
+          )}
         </NeoContainer>
       </Grid>
     </Grid>

@@ -1,6 +1,7 @@
 export * from './Appbar';
 export * from './Canvas';
 export * from './DynamicText';
+export * from './Footer';
 export * from './Menu';
 export * from './NeoAnimator';
 export * from './NeoButton';

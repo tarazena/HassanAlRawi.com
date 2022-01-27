@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { WHAT_I_DO } from "core";
 import { FC } from "react";
-import { NeoContainer } from "./Shared";
+import { NeoContainer } from "./shared";
 
 export const WhatIDo: FC = () => {
   return (

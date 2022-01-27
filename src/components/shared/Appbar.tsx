@@ -6,7 +6,7 @@ import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 
 import { colors } from "core/theme";
-import { NeoIconButton } from "./";
+import { NeoIconButton } from "./NeoIconButton";
 import { drawerWidth } from "core";
 import { UIContext } from "contexts";
 

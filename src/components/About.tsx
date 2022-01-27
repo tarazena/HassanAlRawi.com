@@ -1,11 +1,16 @@
 import { Grid, Typography } from "@mui/material";
 import { FC } from "react";
-import { NeoButton, NeoContainer } from "./Shared";
+import { NeoButton, NeoContainer } from "./shared";
+import { Link } from "react-scroll";
 
 export const About: FC = () => (
   <Grid container direction={"row"} justifyContent="center" my={5}>
     <Grid item sm={6} container justifyContent={"end"} alignContent={"center"}>
-      <NeoContainer styleOverride={{ margin: 20 }} invertedShadow scaleContentOnHover>
+      <NeoContainer
+        styleOverride={{ margin: 20 }}
+        invertedShadow
+        scaleContentOnHover
+      >
         <img
           src="https://www.hassanalrawi.com/img/author.722ae374.jpg"
           style={{
@@ -42,21 +47,24 @@ export const About: FC = () => (
       <Grid item container direction="row" justifyContent={"center"} pt={5}>
         <NeoButton
           styleOverride={{ textTransform: "none" }}
-          px={2}
+          px={3}
           py={1}
           shadowDepthX={6}
           shadowDepthY={6}
           invertedShadow
         >
-          Contact Me
+          <Link to="contact" smooth>
+            Contact Me
+          </Link>
         </NeoButton>
         <NeoButton
           styleOverride={{ textTransform: "none" }}
-          px={2}
+          px={3}
           py={1}
           shadowDepthX={6}
           shadowDepthY={6}
           invertedShadow
+          href="https://firebasestorage.googleapis.com/v0/b/hassanalrawi-eb46f.appspot.com/o/Pdf%2FHassanAl-RawiProfile.pdf?alt=media&token=faf15cb9-e303-4677-bd37-c76037e3ebf5"
         >
           Download Resume
         </NeoButton>

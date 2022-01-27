@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { FC } from "react";
 
-import { DynamicText, NeoContainer, PillContainer } from "./Shared";
+import { DynamicText, NeoContainer, PillContainer } from "./shared";
 import { HERO_TEXT, PUBLIC_LINKS } from "core";
 
 export const Hero: FC = () => (
