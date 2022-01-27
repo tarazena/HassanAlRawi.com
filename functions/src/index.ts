@@ -22,14 +22,20 @@ exports.contact = functions.https.onRequest((request, response) => {
     ) {
       const data = request.body;
 
-      SendGrid.send(data)
-          .then(() => {
-            response.send("Message Sent!");
-          })
-          .catch((error) => {
-            console.log(error);
-            response.status(500).send("Unable to send email");
-          });
+      SendGrid.send([
+        {
+          templateId: "d-c2a51996309c48a38e212cb9d87272ca",
+          from: "contact@hassanalrawi.com",
+          dynamicTemplateData: data,
+        },
+      ])
+        .then(() => {
+          response.send("Message Sent!");
+        })
+        .catch((error) => {
+          console.log(error);
+          response.status(500).send("Unable to send email");
+        });
     } else {
       response.set("Access-Control-Allow-Origin", "*");
       response.status(400).send("Please provide a valid contact info");
