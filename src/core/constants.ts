@@ -18,27 +18,27 @@ export const WHAT_I_DO: IWhatIdDoData[] = [
   {
     imageUrl: "https://www.hassanalrawi.com/img/service/1.png",
     title: "Web Design",
-    text: "Designing Websites/Web Apps from concepts to actual products, using Adobe Suite (Photoshop, Illustrator, etc) to implementing the code using JQuery and Bootstrap.",
+    text: "Designing Websites/Web Apps from concepts to actual products, using Adobe Suite (Photoshop, Illustrator, etc) to implementing the code using React, Cloud, etc.",
   },
   {
     imageUrl: "https://www.hassanalrawi.com/img/service/2.png",
     title: "Development",
-    text: "Building complex solutions for you needs, whether if you need an iOS app, Web Application, or Desktop Application, using the latest technology.",
+    text: "Building complex solutions for you needs, whether if you need an iOS app, Web Application, or Desktop Application, using the latest technologies.",
   },
   {
     imageUrl: "https://www.hassanalrawi.com/img/service/3.png",
     title: "Graphic Design",
     text: "Designing Logos, Book Covers, Business Cards, Web Sites, Prototyping, using the best industry standard tools to deliver your business needs and your creative ideas!",
   },
-  {
-    imageUrl: "https://www.hassanalrawi.com/img/service/4.png",
-    title: "Photography",
-    text: "Focusing on Landscape Photography, But i can take Good photos of whatever subject you need, Check my Flickr profile!",
-  },
+  // {
+  //   imageUrl: "https://www.hassanalrawi.com/img/service/4.png",
+  //   title: "Photography",
+  //   text: "Focusing on Landscape Photography, But i can take Good photos of whatever subject you need, Check my Flickr profile!",
+  // },
   {
     imageUrl: "https://www.hassanalrawi.com/img/service/5.png",
     title: "Problem Solving",
-    text: "Excellent debugging skills, If you have a technical problem, I can tell you whats wrong and how to fix your issues!",
+    text: "Excellent debugging skills, If you have a technical problem, I can tell you whats wrong and how to fix it!",
   },
   {
     imageUrl: "https://www.hassanalrawi.com/img/service/6.png",
@@ -172,7 +172,7 @@ const DATABASES: Technology[] = [
 const CLOUD: Technology[] = [
   {
     name: "Azure",
-    logo: "https://firebasestorage.googleapis.com/v0/b/hassanalrawi-eb46f.appspot.com/o/Logos%2FMicrosoft_Azure_Logo.svg?alt=media&token=860daa4b-1f99-4d9d-b35b-06de948f5a5e",
+    logo: "https://firebasestorage.googleapis.com/v0/b/hassanalrawi-eb46f.appspot.com/o/Logos%2Fmicrosoft_azure-icon.svg?alt=media&token=446d4b0b-f5ed-4087-8a98-22bf174c73d6",
     url: "https://azure.microsoft.com/en-us/",
   },
   {
@@ -184,6 +184,11 @@ const CLOUD: Technology[] = [
     name: "GCP",
     logo: "https://firebasestorage.googleapis.com/v0/b/hassanalrawi-eb46f.appspot.com/o/Logos%2Fgoogle-cloud-1.svg?alt=media&token=1d58b389-a2d5-45b0-9bcc-fc8207b6b46d",
     url: "https://cloud.google.com/",
+  },
+  {
+    name: "Docker",
+    logo: "https://firebasestorage.googleapis.com/v0/b/hassanalrawi-eb46f.appspot.com/o/Logos%2Fdocker-icon.svg?alt=media&token=18c10470-e455-4a71-9b37-c36368f62b8f",
+    url: "https://www.docker.com/",
   },
   {
     name: "Snowflake",
