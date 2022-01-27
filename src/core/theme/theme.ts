@@ -10,6 +10,13 @@ export const theme = (backgroundColor: Colors) =>
         default: colors[backgroundColor],
       },
     },
+    components: {
+      MuiLink: {
+        defaultProps: {
+          color: "rgba(0,0,0,0.6)",
+        }
+      }
+    },
     typography: {
       allVariants: {
         fontFamily: "Manrope, sans-serif;",

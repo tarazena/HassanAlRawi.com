@@ -6,7 +6,7 @@ import {
   Hero,
   WhatIDo,
   WhatIUse,
-  Footer
+  Footer,
 } from "components";
 
 export const Home: FC = () => (

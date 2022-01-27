@@ -1,11 +1,10 @@
+import { FC } from "react";
 import { Box, Grid, IconButton, Stack, Theme, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { FC } from "react";
-
-import { DynamicText, NeoContainer, PillContainer } from "./shared";
-import { HERO_TEXT, PUBLIC_LINKS } from "core";
 import { makeStyles } from "@mui/styles";
+
+import { DynamicText, NeoContainer, PillContainer } from "components";
+import { HERO_TEXT, PUBLIC_LINKS } from "core";
 
 const useClasses = makeStyles((theme: Theme) => ({
   textContainer: {

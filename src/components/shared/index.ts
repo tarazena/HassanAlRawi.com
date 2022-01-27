@@ -1,4 +1,5 @@
 export * from './Appbar';
+export * from './Configurator';
 export * from './DynamicText';
 export * from './Footer';
 export * from './Menu';
