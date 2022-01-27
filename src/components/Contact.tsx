@@ -20,7 +20,7 @@ export const Contact: FC = () => {
   const handleOnSubmit = useCallback(async () => {
     try {
       const response = await fetch(
-        "https://us-central1-hassanalrawi-eb46f.cloudfunctions.net/contact",
+        "https://www.hassanalrawi.com/contact",
         {
           method: "POST",
           body: JSON.stringify(formData),
