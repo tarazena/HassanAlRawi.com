@@ -45,30 +45,33 @@ export const About: FC = () => (
         </Typography>
       </NeoContainer>
       <Grid item container direction="row" justifyContent={"center"} pt={5}>
-        <NeoButton
-          styleOverride={{ textTransform: "none" }}
-          px={3}
-          py={1}
-          my={1}
-          shadowDepthX={6}
-          shadowDepthY={6}
-          invertedShadow
-        >
-          <ScrollLink to="contact" smooth>
-            Contact Me
-          </ScrollLink>
-        </NeoButton>
-        <NeoButton
-          styleOverride={{ textTransform: "none" }}
-          px={3}
-          py={1}
-          my={1}
-          shadowDepthX={6}
-          shadowDepthY={6}
-          invertedShadow
-          href="https://firebasestorage.googleapis.com/v0/b/hassanalrawi-eb46f.appspot.com/o/Pdf%2FHassanAl-RawiProfile.pdf?alt=media&token=faf15cb9-e303-4677-bd37-c76037e3ebf5"
-        >
-          Download Resume
+        <ScrollLink to="contact" smooth>
+          <NeoButton>
+            <NeoContainer
+              styleOverride={{ textTransform: "none" }}
+              px={3}
+              py={1}
+              my={1}
+              shadowDepthX={6}
+              shadowDepthY={6}
+              invertedShadow
+            >
+              Contact Me
+            </NeoContainer>
+          </NeoButton>
+        </ScrollLink>
+        <NeoButton href="https://firebasestorage.googleapis.com/v0/b/hassanalrawi-eb46f.appspot.com/o/Pdf%2FResume.pdf?alt=media&token=41b9b54a-77a9-45d6-a3e8-1786b31d786a">
+          <NeoContainer
+            styleOverride={{ textTransform: "none" }}
+            px={3}
+            py={1}
+            my={1}
+            shadowDepthX={6}
+            shadowDepthY={6}
+            invertedShadow
+          >
+            Download Resume
+          </NeoContainer>
         </NeoButton>
       </Grid>
     </Grid>

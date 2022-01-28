@@ -1,13 +1,9 @@
-import { FC, MouseEventHandler } from "react";
-import { Button } from "@mui/material";
+import { FC } from "react";
+import { Button, ButtonTypeMap } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { OverrideProps } from "@mui/material/OverridableComponent";
 
-import { NeoContainer, NeoContainerType } from "components";
-
-interface INeoButton extends NeoContainerType {
-  onClickEvent?: MouseEventHandler<HTMLButtonElement>;
-  href?: string;
-}
+type NeoButtonType = OverrideProps<ButtonTypeMap<{}, "button">, "button">;
 
 const useClasses = makeStyles(() => ({
   root: {
@@ -17,11 +13,11 @@ const useClasses = makeStyles(() => ({
   },
 }));
 
-export const NeoButton: FC<INeoButton> = ({
+export const NeoButton: FC<NeoButtonType> = ({
   children,
-  onClickEvent,
-  href,
-  ...neoContainerProps
+  className,
+  style,
+  ...rest
 }) => {
   const classes = useClasses();
   return (
@@ -29,12 +25,12 @@ export const NeoButton: FC<INeoButton> = ({
       color="inherit"
       style={{
         borderRadius: 69,
+        ...style,
       }}
-      href={href}
-      onClick={onClickEvent}
-      className={classes.root}
+      className={`${classes.root} ${className}`}
+      {...rest}
     >
-      <NeoContainer {...neoContainerProps}>{children}</NeoContainer>
+      {children}
     </Button>
   );
 };

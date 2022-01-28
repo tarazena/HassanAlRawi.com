@@ -135,13 +135,13 @@ export const Contact: FC = () => {
               </Grid>
               <Grid item mt={3} container justifyContent={"center"}>
                 <NeoButton
-                  px={4}
-                  py={1}
-                  onClickEvent={() => {
+                  onClick={() => {
                     handleOnSubmit();
                   }}
                 >
-                  Send
+                  <NeoContainer px={4} py={1}>
+                    Send
+                  </NeoContainer>
                 </NeoButton>
               </Grid>
             </>
