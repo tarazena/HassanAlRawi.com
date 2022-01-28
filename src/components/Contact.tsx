@@ -73,6 +73,7 @@ export const Contact: FC = () => {
                     <TextField
                       id="name"
                       label="Name"
+                      required
                       variant="standard"
                       fullWidth
                       value={formData?.name}
@@ -88,6 +89,7 @@ export const Contact: FC = () => {
                     <TextField
                       id="email"
                       label="Email"
+                      required
                       variant="standard"
                       value={formData?.email}
                       onChange={(e) => {
@@ -105,6 +107,7 @@ export const Contact: FC = () => {
                 <TextField
                   id="subject"
                   label="Subject"
+                  required
                   value={formData?.subject}
                   onChange={(e) => {
                     setFormData({
@@ -123,6 +126,7 @@ export const Contact: FC = () => {
                   variant="standard"
                   fullWidth
                   multiline
+                  required
                   value={formData?.message}
                   onChange={(e) => {
                     setFormData({

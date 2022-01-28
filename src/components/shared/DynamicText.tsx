@@ -101,17 +101,13 @@ export const DynamicText: FC<IDynamicText> = ({ text }) => {
 
   return (
     <span className={classes.root}>
-      {currentText.text.split("").map((l, i) => (
-        <Typography
-          variant="h1"
-          key={`a${i}`}
-          component="span"
-          className={classes.animatedItem}
-          style={{ animationDelay: `${0.5 + i / 10}s` }}
-        >
-          {l}
-        </Typography>
-      ))}
+      <Typography
+        variant="h1"
+        component="span"
+        className={classes.animatedItem}
+      >
+        {currentText.text}
+      </Typography>
     </span>
   );
 };
