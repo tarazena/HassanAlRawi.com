@@ -5,7 +5,7 @@ import { makeStyles } from "@mui/styles";
 import { Box, BoxTypeMap } from "@mui/material";
 import { OverrideProps } from "@mui/material/OverridableComponent";
 import clsx from "clsx";
-import { getBoxShadow } from "core";
+import { ComponentWithChildren, getBoxShadow } from "core";
 import { UIContext } from "contexts";
 
 interface INeoContainer {
@@ -71,7 +71,7 @@ const useClasses = (
   }))();
 };
 
-export const NeoContainer: FC<NeoContainerType> = ({
+export const NeoContainer: FC<NeoContainerType & ComponentWithChildren> = ({
   styleOverride,
   fullWidth,
   fullHeight,

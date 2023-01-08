@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Button, ButtonTypeMap } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { OverrideProps } from "@mui/material/OverridableComponent";
+import { ComponentWithChildren } from "core";
 
 type NeoButtonType = OverrideProps<ButtonTypeMap<{}, "button">, "button">;
 
@@ -13,7 +14,7 @@ const useClasses = makeStyles(() => ({
   },
 }));
 
-export const NeoButton: FC<NeoButtonType> = ({
+export const NeoButton: FC<NeoButtonType & ComponentWithChildren> = ({
   children,
   className,
   style,

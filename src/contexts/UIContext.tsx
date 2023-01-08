@@ -1,4 +1,4 @@
-import { Colors } from "core";
+import { Colors, ComponentWithChildren } from "core";
 import { createContext, FC, useCallback, useState } from "react";
 
 interface IUIContext {
@@ -29,7 +29,7 @@ export const UIContext = createContext<IUIContext>({
   color: "EasternBlue",
 });
 
-export const UIContextProvider: FC = ({ children }) => {
+export const UIContextProvider: FC<ComponentWithChildren> = ({ children }) => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [shadowData, setShadowsState] = useState<ShadowState>({
     shadowX: 15,

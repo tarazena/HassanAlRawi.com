@@ -5,6 +5,9 @@ export interface ITextType {
   text: string;
   type: "text" | "emoji";
 }
+export interface ComponentWithChildren {
+  children?: React.ReactNode;
+}
 
 export interface IHeader {
   title: string;
