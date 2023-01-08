@@ -3,10 +3,11 @@ import { Grid } from "@mui/material";
 
 import { NeoContainer } from "./NeoContainer";
 import { NeoContainerType } from "./NeoContainer";
+import { ComponentWithChildren } from "core";
 
 interface IPillContainer extends NeoContainerType {}
 
-export const PillContainer: FC<IPillContainer> = ({
+export const PillContainer: FC<IPillContainer & ComponentWithChildren> = ({
   children,
   ...neoContainerStyles
 }) => (

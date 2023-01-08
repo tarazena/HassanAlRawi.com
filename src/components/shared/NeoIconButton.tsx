@@ -3,6 +3,7 @@ import { IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 import { NeoContainer } from "components";
+import { ComponentWithChildren } from "core";
 
 interface INeoIconButton {
   onClick: () => void;
@@ -17,7 +18,7 @@ const useClasses = makeStyles(() => ({
   },
 }));
 
-export const NeoIconButton: FC<INeoIconButton> = ({
+export const NeoIconButton: FC<INeoIconButton & ComponentWithChildren> = ({
   children,
   onClick,
   style,
