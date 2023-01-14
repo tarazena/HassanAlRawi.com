@@ -1,11 +1,11 @@
-import * as functions from "firebase-functions";
+import { https } from "firebase-functions";
 import * as SendGrid from "@sendgrid/mail";
-import * as dotenv from "dotenv";
+import { config } from "dotenv";
 
-exports.contact = functions.https.onRequest((request, response) => {
-  dotenv.config();
+exports.contact = https.onRequest((request, response) => {
+  config();
 
-  response.set("Access-Control-Allow-Origin", process.env.ALLOW_ORIGIN || "*");
+  response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
     // Send response to OPTIONS requests
