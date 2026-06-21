@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# HassanAlRawi.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal site for Hassan Al Rawi, built with [Astro](https://astro.build) and a
+neumorphic design. Deployed to Firebase Hosting; a contact Cloud Function handles
+the `/contact` endpoint.
 
-## Available Scripts
+## Stack
 
-In the project directory, you can run:
+- **Astro** (static output) — single page at `src/pages/index.astro`
+- **pnpm** for package management
+- **Firebase Hosting** serves the built site
+- **Firebase Functions** (`functions/`) — the `contact` function, unchanged
 
-### `yarn start`
+## Develop
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```sh
+pnpm install
+pnpm dev        # local dev server
+pnpm build      # outputs to ./build (Firebase Hosting's public dir)
+pnpm preview    # serve the production build locally
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Architecture notes
 
-### `yarn test`
+- Astro's `outDir` is set to `build/` in `astro.config.mjs` so the existing
+  Firebase setup is unchanged: `firebase.json` (`hosting.public: "build"`),
+  the `/contact` rewrite, and the GitHub deploy workflows all keep working.
+- The theme toggle (light/dark) stores its choice in `localStorage` under
+  `hr-theme` and is applied before paint to avoid a flash.
+- Real contact email and social links live in the frontmatter of
+  `src/pages/index.astro`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## TODO
 
-### `yarn build`
+- Fill in the **Selected work** section (placeholder cards in `index.astro`).
+- Add a real portrait image for the About section.
+- Add a résumé PDF and a real "Book a call" scheduling link.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Previous site
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The prior Create React App version is preserved in full in [`backup/`](./backup)
+as a self-contained project (`cd backup && yarn install && yarn start`).
