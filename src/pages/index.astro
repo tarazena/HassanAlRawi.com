@@ -273,6 +273,7 @@ const projects = [
   /* ---------------- Palettes ---------------- */
   :root,
   :root[data-theme="light"] {
+    color-scheme: light;
     --surface: #e9e6e1;
     --shd: #cdc9c2;
     --shl: #fbf9f5;
@@ -286,6 +287,7 @@ const projects = [
     --on-accent: #fbf9f5;
   }
   :root[data-theme="dark"] {
+    color-scheme: dark;
     --surface: #262320;
     --shd: #1a1714;
     --shl: #322e29;
@@ -300,8 +302,10 @@ const projects = [
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; }
+  /* Paint the full viewport (incl. iOS Safari bars & overscroll) with the
+     surface color, not just the inner .root element. */
+  html { scroll-behavior: smooth; background: var(--surface); }
+  body { margin: 0; background: var(--surface); transition: background 0.35s ease; }
   a { color: inherit; }
 
   @keyframes spin { to { transform: rotate(360deg); } }
