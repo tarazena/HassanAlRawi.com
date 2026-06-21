@@ -1,0 +1,6 @@
+# Allow these dependencies to run their install/build scripts.
+# pnpm blocks build scripts by default; Astro/Vite need esbuild, and
+# sharp is used for Astro's optional image optimization.
+allowBuilds:
+  esbuild: true
+  sharp: true
