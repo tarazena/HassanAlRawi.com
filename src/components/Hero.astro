@@ -1,0 +1,32 @@
+---
+import "../styles/hero.css";
+import { site } from "../data/site";
+---
+<section class="hero">
+  <div class="hero-copy">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>Open to work &amp; consulting</span>
+    </div>
+    <div class="eyebrow">{site.role}</div>
+    <h1 class="h1">Hassan<br />Al Rawi</h1>
+    <p class="lead">
+      Engineer, designer, photographer &amp; musician. I build products end to
+      end — and founded <span class="accent">{site.org}</span> to ship a few of my own.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      {/* TODO: link to a real résumé PDF (drop it in /public and point href here) */}
+      <a class="btn btn-secondary" href="#contact">Résumé ↓</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="art-orbit">
+      <div class="art-orbit-dot art-orbit-dot--top"></div>
+      <div class="art-orbit-dot art-orbit-dot--bottom"></div>
+    </div>
+    <div class="art-blob"><div class="art-blob-core"></div></div>
+    <div class="art-float art-float--1"></div>
+    <div class="art-float art-float--2"></div>
+  </div>
+</section>

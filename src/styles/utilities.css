@@ -1,0 +1,36 @@
+/* Shared classes used across several sections. */
+
+/* Section eyebrows / titles */
+.section-label { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); margin-bottom: 18px; }
+.section-title { font-family: "Sora", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--strong); margin: 0; }
+.section-meta { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+.eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.eyebrow--accent { color: var(--accent); }
+
+/* Buttons */
+.btn { text-decoration: none; white-space: nowrap; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.btn-primary {
+  padding: 15px 26px; border-radius: 16px; font-size: 14.5px; font-weight: 700; color: var(--on-accent);
+  background: var(--accent); box-shadow: 6px 6px 14px var(--shd), -6px -6px 14px var(--shl);
+}
+.btn-secondary {
+  padding: 15px 26px; border-radius: 16px; font-size: 14.5px; font-weight: 700; color: var(--accent);
+  background: var(--surface); box-shadow: 6px 6px 14px var(--shd), -6px -6px 14px var(--shl);
+}
+.btn-primary:hover, .btn-secondary:hover { transform: translateY(-3px); box-shadow: 9px 10px 20px var(--shd), -9px -9px 20px var(--shl); }
+
+/* Pills */
+.tag {
+  padding: 6px 11px; border-radius: 30px; font-size: 11.5px; font-weight: 600; color: var(--mute);
+  background: var(--surface); box-shadow: 3px 3px 6px var(--shd), -3px -3px 6px var(--shl);
+}
+.chip {
+  padding: 9px 16px; border-radius: 30px; font-size: 13px; font-weight: 600; color: var(--mute);
+  background: var(--surface); box-shadow: 4px 4px 9px var(--shd), -4px -4px 9px var(--shl);
+}
+
+/* Inset image placeholder (work thumbs + about portrait) */
+.thumb-placeholder {
+  width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; border-radius: 11px;
+  font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint);
+}

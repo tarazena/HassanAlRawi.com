@@ -1,0 +1,21 @@
+/* Selected work grid + cards. (Pills use .tag / placeholder uses .thumb-placeholder from utilities.) */
+.work-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; scroll-margin-top: 24px; }
+.work { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 64px; }
+.work-card {
+  padding: 18px; border-radius: 24px; background: var(--surface);
+  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.work-card:hover { transform: translateY(-4px); box-shadow: 11px 13px 26px var(--shd), -11px -11px 26px var(--shl); }
+.work-thumb {
+  border-radius: 16px; background: var(--well); box-shadow: inset 5px 5px 11px var(--shd), inset -5px -5px 11px var(--shl);
+  padding: 7px; margin-bottom: 16px;
+}
+.work-thumb img { width: 100%; height: 180px; object-fit: cover; display: block; border-radius: 11px; }
+.work-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+.work-title { font-size: 17px; font-weight: 700; color: var(--strong); }
+.work-view { text-decoration: none; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+.work-blurb { font-size: 13.5px; line-height: 1.55; color: var(--dim); margin: 0 0 14px; }
+
+@media (max-width: 760px) {
+  .work { grid-template-columns: 1fr; }
+}

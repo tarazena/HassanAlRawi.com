@@ -1,0 +1,31 @@
+/* Reset, document background, keyframes, page shell. */
+* { box-sizing: border-box; }
+/* Paint the full viewport (incl. iOS Safari bars & overscroll) with the
+   surface color, not just the inner .root element. */
+html { scroll-behavior: smooth; background: var(--surface); }
+body { margin: 0; background: var(--surface); transition: background 0.35s ease; }
+a { color: inherit; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blobBreath {
+  0%, 100% { transform: scale(1); border-radius: 62% 38% 46% 54% / 60% 51% 49% 40%; }
+  50% { transform: scale(1.07); border-radius: 42% 58% 62% 38% / 40% 49% 51% 60%; }
+}
+@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes floatY2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+
+.root {
+  display: block;
+  min-height: 100vh;
+  background: var(--surface);
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--text);
+  padding: 28px 24px 60px;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.wrap { max-width: 940px; margin: 0 auto; }
+.accent { color: var(--accent); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .root { padding: 18px 16px 44px; }
+}

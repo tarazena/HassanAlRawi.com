@@ -1,0 +1,41 @@
+---
+import "../../styles/blog.css";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatDate } from "../../lib/date";
+import { site } from "../../data/site";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+<BaseLayout
+  title={`Writing — ${site.name}`}
+  description="Notes on building products, design, photography, and music."
+>
+  <div class="page-head">
+    <div class="section-label">Writing</div>
+    <h1 class="page-title">Notes & essays</h1>
+    <p class="page-intro">
+      Occasional writing on building products end to end, design, and the
+      disciplines outside the editor.
+    </p>
+  </div>
+
+  {posts.length === 0 ? (
+    <p class="empty-note">No posts yet — check back soon.</p>
+  ) : (
+    <div class="post-list">
+      {posts.map((post) => (
+        <a class="post-card" href={`/blog/${post.id}`}>
+          <div class="post-card-meta">
+            {formatDate(post.data.pubDate)}
+            {post.data.tags.length > 0 && <> · {post.data.tags.join(" · ")}</>}
+          </div>
+          <h2 class="post-card-title">{post.data.title}</h2>
+          <p class="post-card-desc">{post.data.description}</p>
+        </a>
+      ))}
+    </div>
+  )}
+</BaseLayout>

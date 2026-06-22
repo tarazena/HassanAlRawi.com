@@ -1,0 +1,14 @@
+/* "What I do" cards. */
+.do { display: flex; gap: 16px; margin-bottom: 64px; }
+.do-card {
+  flex: 1; padding: 26px 22px; border-radius: 22px; background: var(--surface);
+  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.do-card:hover { transform: translateY(-4px); box-shadow: 11px 13px 26px var(--shd), -11px -11px 26px var(--shl); }
+.do-num { font-family: "Sora", sans-serif; font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
+.do-title { font-size: 17px; font-weight: 700; color: var(--strong); margin: 0 0 8px; }
+.do-text { font-size: 13.5px; line-height: 1.6; color: var(--dim); margin: 0; }
+
+@media (max-width: 760px) {
+  .do { flex-direction: column; }
+}

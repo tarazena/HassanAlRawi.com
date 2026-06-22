@@ -1,0 +1,21 @@
+/* About section. */
+.about {
+  display: flex; gap: 30px; align-items: center; margin-bottom: 64px; scroll-margin-top: 24px;
+  padding: 30px; border-radius: 28px; background: var(--surface);
+  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl);
+}
+.about-photo {
+  flex: none; border-radius: 24px; background: var(--well);
+  box-shadow: inset 6px 6px 13px var(--shd), inset -6px -6px 13px var(--shl); padding: 9px;
+}
+.about-photo .thumb-placeholder { width: 200px; height: 240px; border-radius: 16px; }
+.about-photo img { width: 200px; height: 240px; object-fit: cover; display: block; border-radius: 16px; }
+.about-copy { flex: 1; min-width: 0; }
+.about-title { font-family: "Sora", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: var(--strong); margin: 0 0 14px; line-height: 1.15; }
+.about-text { margin: 0 0 12px; font-size: 15px; line-height: 1.65; color: var(--mute); }
+.about-text:last-child { margin-bottom: 0; }
+
+@media (max-width: 760px) {
+  .about { flex-direction: column; align-items: flex-start; gap: 20px; padding: 22px; }
+  .about-photo { align-self: center; }
+}

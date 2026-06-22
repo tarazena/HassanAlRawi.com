@@ -6,7 +6,7 @@ the `/contact` endpoint.
 
 ## Stack
 
-- **Astro** (static output) — single page at `src/pages/index.astro`
+- **Astro** (static output)
 - **pnpm** for package management
 - **Firebase Hosting** serves the built site
 - **Firebase Functions** (`functions/`) — the `contact` function, unchanged
@@ -20,15 +20,58 @@ pnpm build      # outputs to ./build (Firebase Hosting's public dir)
 pnpm preview    # serve the production build locally
 ```
 
+## Project layout
+
+```
+src/
+  data/site.ts          # content: name, email, nav links, socials, stack, projects
+  styles/                # one CSS file per concern:
+                         #   tokens.css (theme palettes), base.css (reset + shell),
+                         #   utilities.css (shared classes), then one per section
+                         #   (nav.css, hero.css, …, blog.css)
+  layouts/BaseLayout.astro   # <head>, fonts, theme scripts, Nav + Footer, <slot/>;
+                         #   imports tokens + base + utilities (the foundation)
+  components/            # Nav, Hero, Stats, WhatIDo, SelectedWork, WorkCard,
+                         #   About, Stack, Contact, Footer, ThemeToggle, Logo
+                         #   — each imports its own stylesheet
+  content/blog/*.md      # blog posts (Markdown)
+  content.config.ts      # blog collection schema
+  pages/
+    index.astro          # home — composes the section components
+    blog/index.astro     # writing index
+    blog/[...slug].astro # individual post
+```
+
+Styles live next to what they style: each component imports its own CSS file
+(e.g. `Hero.astro` → `styles/hero.css`), and the layout imports the foundation
+(`tokens`, `base`, `utilities`). Astro then ships only the CSS each page uses.
+Most content edits are data-only — update `src/data/site.ts`.
+
+## Writing a blog post
+
+Drop a Markdown file in `src/content/blog/` — the filename becomes the URL
+(`my-post.md` → `/blog/my-post`). Start it with frontmatter:
+
+```yaml
+---
+title: "My post title"
+description: "One-line summary for the list + social cards."
+pubDate: 2026-06-21
+tags: ["notes"]
+draft: false        # set true to keep it out of the published build
+---
+```
+
+Posts are listed newest-first on `/blog`; drafts are excluded from the build.
+
 ## Architecture notes
 
 - Astro's `outDir` is set to `build/` in `astro.config.mjs` so the existing
   Firebase setup is unchanged: `firebase.json` (`hosting.public: "build"`),
   the `/contact` rewrite, and the GitHub deploy workflows all keep working.
-- The theme toggle (light/dark) stores its choice in `localStorage` under
-  `hr-theme` and is applied before paint to avoid a flash.
-- Real contact email and social links live in the frontmatter of
-  `src/pages/index.astro`.
+- The theme (light/dark) follows the OS `prefers-color-scheme` by default;
+  the toggle stores an explicit choice in `localStorage` (`hr-theme`) that
+  overrides the OS. It's applied before paint to avoid a flash.
 
 ## TODO
 

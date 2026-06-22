@@ -1,0 +1,24 @@
+---
+import type { Project } from "../data/site";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+<article class="work-card">
+  <div class="work-thumb">
+    {project.image
+      ? <img src={project.image} alt={project.title} />
+      : <span class="thumb-placeholder">Project image</span>}
+  </div>
+  <div class="work-row">
+    <div class="work-title">{project.title}</div>
+    <a class="work-view" href={project.href}>View →</a>
+  </div>
+  <p class="work-blurb">{project.blurb}</p>
+  <div class="tags">
+    {project.tags.map((t) => <span class="tag">{t}</span>)}
+  </div>
+</article>

@@ -1,0 +1,3 @@
+/* Tech-stack chip row. (Chips use .chip from utilities.) */
+.stack-section { margin-bottom: 64px; scroll-margin-top: 24px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
