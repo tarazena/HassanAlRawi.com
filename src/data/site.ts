@@ -44,7 +44,9 @@ export const socials: Social[] = [
 // Tech stack (subset, ordered to match the design's chip row).
 export const stack: string[] = [
   "TypeScript", "Go", "React", "Next.js", "Node", "PostgreSQL",
-  "GraphQL", "AWS", "Docker", "Python", "Rust", "Swift",
+  "GraphQL", "AWS", "Docker", "Python",
+  "React Native", "Flutter", ".NET", "C#", "Kotlin", "Terraform",
+  "SQL", "Snowflake", "Twilio", "Sentry", "And so much more…",
 ];
 
 export interface Discipline {
@@ -68,13 +70,31 @@ export interface Project {
   image: string | null;
 }
 
-// TODO: Replace these placeholders with real projects. Add an image to
-// /public and set `image` to its path to swap out the placeholder.
-const placeholderBlurb =
-  "A selected project will live here — what it is, what you shipped, and the outcome.";
+// Add an image to /public and set `image` to its path to swap out the
+// neumorphic placeholder thumbnail.
 export const projects: Project[] = [
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
+  {
+    title: "Topp Layer Printing",
+    blurb:
+      "A print shop in Lakewood, Ohio — digital printing, screen-printed tees, and signs & banners. I built the site end to end: marketing pages, portfolio, and the backend.",
+    tags: ["Web", "Full-stack"],
+    href: "https://topplayerprinting.com/",
+    image: null,
+  },
+  {
+    title: "Pipper",
+    blurb:
+      "A real-time gender-reveal party app — guests answer quiz questions on their phones that sync live to a TV for the final reveal. Shipped across web, mobile, and tvOS.",
+    tags: ["Web", "Mobile", "tvOS"],
+    href: "https://pip-per.com/",
+    image: null,
+  },
+  {
+    title: "Project Haulin",
+    blurb:
+      "A chill 3D trucking sim built in Unity — take a contract, back your rig onto the trailer, and haul cargo across sun-baked cities. In development for iOS & Android.",
+    tags: ["Unity", "Game", "Mobile"],
+    href: "#",
+    image: null,
+  },
 ];

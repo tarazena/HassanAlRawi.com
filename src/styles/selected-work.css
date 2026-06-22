@@ -23,6 +23,7 @@
 .work-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
 .work-title { font-size: 17px; font-weight: 700; color: var(--strong); }
 .work-view { text-decoration: none; font-size: 12.5px; font-weight: 700; color: var(--accent); }
+.work-view--soon { color: var(--dim); }
 .work-blurb { font-size: 13.5px; line-height: 1.55; color: var(--dim); margin: 0 0 14px; }
 
 @media (max-width: 760px) {

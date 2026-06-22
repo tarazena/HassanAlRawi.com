@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const hasLink = project.href !== "#";
+const isExternal = project.href.startsWith("http");
 ---
 <article class="work-card">
   <div class="work-thumb">
@@ -15,7 +17,13 @@ const { project } = Astro.props;
   </div>
   <div class="work-row">
     <div class="work-title">{project.title}</div>
-    <a class="work-view" href={project.href}>View →</a>
+    {hasLink
+      ? <a
+          class="work-view"
+          href={project.href}
+          {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >View →</a>
+      : <span class="work-view work-view--soon">In progress</span>}
   </div>
   <p class="work-blurb">{project.blurb}</p>
   <div class="tags">
