@@ -25,7 +25,8 @@
     "rewrites": [
       {
         "source": "/contact",
-        "function": "contact"
+        "function": "contact",
+        "region": "us-central1"
       }
     ]
   }

@@ -4,3 +4,8 @@
 allowBuilds:
   esbuild: true
   sharp: true
+
+# Force a patched esbuild (GHSA-g7r4-m6w7-qqqr; Vite/Astro otherwise
+# resolve a vulnerable 0.27.x).
+overrides:
+  esbuild: ^0.28.1
