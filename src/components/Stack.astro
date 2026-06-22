@@ -1,0 +1,9 @@
+---
+import { stack } from "../data/site";
+---
+<section class="stack-section" id="stack">
+  <div class="section-label">What I use</div>
+  <div class="chips">
+    {stack.map((s) => <span class="chip">{s}</span>)}
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import { site, navLinks } from "../data/site";
+import Logo from "./Logo.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+<nav class="nav">
+  <a class="nav-brand" href="/" aria-label={`${site.name} — home`}>
+    <span class="nav-logo"><Logo /></span>
+    <span class="nav-text">
+      <span class="nav-name">{site.name}</span>
+      <span class="nav-sub">{site.org}</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    {navLinks.map((link) => (
+      <a class="nav-link" data-nav href={link.href}>{link.label}</a>
+    ))}
+    <a class="nav-cta" href="/#contact">Get in touch</a>
+    <ThemeToggle />
+  </div>
+</nav>

@@ -1,0 +1,96 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Open Graph URL for this page; defaults to the site root. */
+  ogUrl?: string;
+}
+
+const { title, description = site.description, ogUrl = site.url } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#e9e6e1" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={ogUrl} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    {/* Apply the theme before first paint to avoid a flash.
+        Use the saved choice if there is one, otherwise follow the OS setting. */}
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("hr-theme");
+          var t = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body>
+    <main class="root" id="top">
+      <div class="wrap">
+        <Nav />
+        <slot />
+        <Footer />
+      </div>
+    </main>
+
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById("themeToggle");
+        var icon = btn && btn.querySelector("[data-theme-icon]");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        var COLORS = { light: "#e9e6e1", dark: "#262320" };
+        function sync() {
+          var theme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+          if (icon) icon.textContent = theme === "dark" ? "☀" : "☾";
+          if (meta) meta.setAttribute("content", COLORS[theme]);
+        }
+        sync();
+        if (btn) {
+          btn.addEventListener("click", function () {
+            var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+            document.documentElement.dataset.theme = next;
+            // Manual choice becomes sticky and overrides the OS setting.
+            try { localStorage.setItem("hr-theme", next); } catch (e) {}
+            sync();
+          });
+        }
+        // Keep following the OS until the user makes an explicit choice.
+        try {
+          window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+            var stored = null;
+            try { stored = localStorage.getItem("hr-theme"); } catch (err) {}
+            if (!stored) {
+              document.documentElement.dataset.theme = e.matches ? "dark" : "light";
+              sync();
+            }
+          });
+        } catch (e) {}
+      })();
+    </script>
+  </body>
+</html>

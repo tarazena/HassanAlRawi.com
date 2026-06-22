@@ -1,0 +1,11 @@
+---
+import { projects } from "../data/site";
+import WorkCard from "./WorkCard.astro";
+---
+<div class="work-head" id="work">
+  <h2 class="section-title">Selected work</h2>
+  <span class="section-meta">IFF Productions &amp; clients</span>
+</div>
+<section class="work">
+  {projects.map((project) => <WorkCard project={project} />)}
+</section>

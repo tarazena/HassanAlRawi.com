@@ -1,0 +1,13 @@
+---
+import { disciplines } from "../data/site";
+---
+<div class="section-label">What I do</div>
+<section class="do">
+  {disciplines.map((d) => (
+    <article class="do-card">
+      <div class="do-num">{d.num}</div>
+      <h3 class="do-title">{d.title}</h3>
+      <p class="do-text">{d.text}</p>
+    </article>
+  ))}
+</section>
