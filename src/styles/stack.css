@@ -1,3 +1,5 @@
 /* Tech-stack chip row. (Chips use .chip from utilities.) */
 .stack-section { margin-bottom: 64px; scroll-margin-top: 24px; }
-.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+/* Let the trailing "And so much more…" chip fill the rest of its row. */
+.chips .chip:last-child { flex: 1; text-align: center; }

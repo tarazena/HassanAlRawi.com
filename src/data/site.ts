@@ -46,7 +46,7 @@ export const stack: string[] = [
   "TypeScript", "Go", "React", "Next.js", "Node", "PostgreSQL",
   "GraphQL", "AWS", "Docker", "Python",
   "React Native", "Flutter", ".NET", "C#", "Kotlin", "Terraform",
-  "SQL", "Snowflake", "Twilio", "Sentry", "And so much more…",
+  "SQL", "Snowflake", "Twilio", "Sentry", "AI", "And so much more…",
 ];
 
 export interface Discipline {
