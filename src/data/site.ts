@@ -44,7 +44,7 @@ export const socials: Social[] = [
 // Tech stack (subset, ordered to match the design's chip row).
 export const stack: string[] = [
   "TypeScript", "Go", "React", "Next.js", "Node", "PostgreSQL",
-  "GraphQL", "AWS", "Docker", "Python", "Rust", "Swift",
+  "GraphQL", "AWS", "Docker", "Python",
   "React Native", "Flutter", ".NET", "C#", "Kotlin", "Terraform",
   "SQL", "Snowflake", "Twilio", "Sentry", "And so much more…",
 ];
