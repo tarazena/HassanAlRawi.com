@@ -1,0 +1,31 @@
+/* Design tokens — per-theme palettes.
+   The active theme is set on <html data-theme> before first paint. */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --surface: #e9e6e1;
+  --shd: #cdc9c2;
+  --shl: #fbf9f5;
+  --well: #e4e0da;
+  --strong: #2c2a25;
+  --text: #3a3631;
+  --mute: #6a655d;
+  --dim: #857f76;
+  --faint: #a39d93;
+  --accent: #41509e;
+  --on-accent: #fbf9f5;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #262320;
+  --shd: #1a1714;
+  --shl: #322e29;
+  --well: #211d17;
+  --strong: #f0ebe3;
+  --text: #cfc8bd;
+  --mute: #b3ada2;
+  --dim: #938d81;
+  --faint: #807a70;
+  --accent: #9aa9e6;
+  --on-accent: #1f1b16;
+}

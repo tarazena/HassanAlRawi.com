@@ -1,0 +1,22 @@
+/* Contact card + social badges. */
+.contact {
+  scroll-margin-top: 24px; padding: 48px 40px; border-radius: 30px; background: var(--surface);
+  box-shadow: inset 7px 7px 18px var(--shd), inset -7px -7px 18px var(--shl); text-align: center; margin-bottom: 34px;
+}
+.contact-title { font-family: "Sora", sans-serif; font-size: 38px; font-weight: 700; letter-spacing: -0.025em; color: var(--strong); margin: 0 0 14px; line-height: 1.05; }
+.contact-text { margin: 0 auto 28px; max-width: 420px; font-size: 15.5px; line-height: 1.6; color: var(--mute); }
+.contact-btns { display: flex; gap: 13px; justify-content: center; margin-bottom: 30px; }
+.socials { display: flex; gap: 10px; justify-content: center; }
+.social-link {
+  text-decoration: none; width: 46px; height: 46px; border-radius: 14px; font-family: "IBM Plex Mono", monospace;
+  font-size: 12px; font-weight: 700; color: var(--mute); background: var(--surface);
+  box-shadow: 4px 4px 9px var(--shd), -4px -4px 9px var(--shl); display: flex; align-items: center; justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.social-link:hover { color: var(--accent); transform: translateY(-2px); }
+
+@media (max-width: 760px) {
+  .contact { padding: 34px 22px; }
+  .contact-btns { flex-direction: column; }
+  .contact-btns .btn { width: 100%; }
+}

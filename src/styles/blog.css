@@ -1,0 +1,53 @@
+/* Blog index + post pages, including Markdown prose. */
+.page-head { margin: 6px 0 40px; }
+.page-title { font-family: "Sora", sans-serif; font-size: 42px; font-weight: 700; letter-spacing: -0.025em; color: var(--strong); margin: 14px 0 12px; line-height: 1.02; }
+.page-intro { margin: 0; max-width: 520px; font-size: 16px; line-height: 1.6; color: var(--mute); }
+
+.post-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 64px; }
+.post-card {
+  display: block; text-decoration: none; padding: 24px 26px; border-radius: 22px; background: var(--surface);
+  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: 11px 13px 26px var(--shd), -11px -11px 26px var(--shl); }
+.post-card-meta { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 9px; }
+.post-card-title { font-family: "Sora", sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--strong); margin: 0 0 7px; }
+.post-card-desc { font-size: 14px; line-height: 1.55; color: var(--dim); margin: 0 0 14px; }
+.empty-note { font-size: 14px; color: var(--dim); padding: 6px 2px 64px; }
+
+.post-back { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--mute); text-decoration: none; margin-bottom: 22px; transition: color 0.2s ease; }
+.post-back:hover { color: var(--accent); }
+.post-header { margin-bottom: 30px; }
+.post-meta { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
+.post-title { font-family: "Sora", sans-serif; font-size: 40px; font-weight: 700; letter-spacing: -0.025em; color: var(--strong); margin: 0 0 12px; line-height: 1.05; }
+.post-desc { margin: 0; font-size: 17px; line-height: 1.5; color: var(--mute); }
+
+/* Markdown body */
+.prose { max-width: 680px; margin-bottom: 64px; color: var(--text); font-size: 16.5px; line-height: 1.75; }
+.prose > :first-child { margin-top: 0; }
+.prose h2 { font-family: "Sora", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: var(--strong); margin: 40px 0 14px; }
+.prose h3 { font-family: "Sora", sans-serif; font-size: 20px; font-weight: 700; color: var(--strong); margin: 30px 0 10px; }
+.prose p { margin: 0 0 18px; }
+.prose a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.prose ul, .prose ol { margin: 0 0 18px; padding-left: 22px; }
+.prose li { margin: 0 0 8px; }
+.prose strong { color: var(--strong); }
+.prose blockquote {
+  margin: 0 0 18px; padding: 14px 20px; border-radius: 14px; background: var(--surface); color: var(--mute);
+  box-shadow: inset 4px 4px 9px var(--shd), inset -4px -4px 9px var(--shl);
+}
+.prose code {
+  font-family: "IBM Plex Mono", monospace; font-size: 0.88em; background: var(--well); color: var(--strong);
+  padding: 2px 6px; border-radius: 6px;
+}
+.prose pre {
+  background: var(--well); border-radius: 16px; padding: 18px 20px; overflow-x: auto; margin: 0 0 18px;
+  box-shadow: inset 4px 4px 9px var(--shd), inset -4px -4px 9px var(--shl);
+}
+.prose pre code { background: none; padding: 0; font-size: 13.5px; }
+.prose img { max-width: 100%; height: auto; border-radius: 14px; }
+.prose hr { border: none; height: 1px; background: var(--faint); opacity: 0.4; margin: 32px 0; }
+
+@media (max-width: 760px) {
+  .page-title { font-size: 34px; }
+  .post-title { font-size: 32px; }
+}

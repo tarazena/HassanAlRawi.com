@@ -25,10 +25,15 @@ pnpm preview    # serve the production build locally
 ```
 src/
   data/site.ts          # content: name, email, nav links, socials, stack, projects
-  styles/global.css     # all styles (class-based, theme palettes)
-  layouts/BaseLayout.astro   # <head>, fonts, theme scripts, Nav + Footer, <slot/>
+  styles/                # one CSS file per concern:
+                         #   tokens.css (theme palettes), base.css (reset + shell),
+                         #   utilities.css (shared classes), then one per section
+                         #   (nav.css, hero.css, …, blog.css)
+  layouts/BaseLayout.astro   # <head>, fonts, theme scripts, Nav + Footer, <slot/>;
+                         #   imports tokens + base + utilities (the foundation)
   components/            # Nav, Hero, Stats, WhatIDo, SelectedWork, WorkCard,
                          #   About, Stack, Contact, Footer, ThemeToggle, Logo
+                         #   — each imports its own stylesheet
   content/blog/*.md      # blog posts (Markdown)
   content.config.ts      # blog collection schema
   pages/
@@ -37,8 +42,10 @@ src/
     blog/[...slug].astro # individual post
 ```
 
-Most edits are data-only: update `src/data/site.ts` for content, or
-`src/styles/global.css` for styling.
+Styles live next to what they style: each component imports its own CSS file
+(e.g. `Hero.astro` → `styles/hero.css`), and the layout imports the foundation
+(`tokens`, `base`, `utilities`). Astro then ships only the CSS each page uses.
+Most content edits are data-only — update `src/data/site.ts`.
 
 ## Writing a blog post
 
