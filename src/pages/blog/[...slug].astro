@@ -20,7 +20,7 @@ const { Content } = await render(post);
 <BaseLayout
   title={`${post.data.title} — ${site.name}`}
   description={post.data.description}
-  ogUrl={`${site.url}/blog/${post.id}`}
+  ogType="article"
 >
   <a class="post-back" href="/blog">← Writing</a>
   <article>

@@ -6,6 +6,7 @@ export const site = {
   role: "Software Engineer & Founder",
   email: "hassan@iffproductions.com",
   url: "https://www.hassanalrawi.com",
+  twitter: "@hassanalrawi",
   description:
     "Hassan Al Rawi — software engineer, designer, photographer & musician. Founder of IFF Productions. I build products end to end.",
 } as const;

@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 // Output to `build/` so the existing Firebase architecture stays unchanged:
 // firebase.json `hosting.public` is "build", and both GitHub workflows run
@@ -8,4 +9,5 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://www.hassanalrawi.com",
   outDir: "./build",
+  integrations: [sitemap()],
 });

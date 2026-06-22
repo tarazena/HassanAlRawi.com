@@ -12,7 +12,6 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
 <BaseLayout
   title={`Writing — ${site.name}`}
   description="Notes on building products, design, photography, and music."
-  ogUrl={`${site.url}/blog`}
 >
   <div class="page-head">
     <div class="section-label">Writing</div>
