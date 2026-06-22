@@ -7,6 +7,9 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    # Expose the preview channel URL so the lighthouse job can target it.
+    outputs:
+      preview_url: '${{ steps.deploy.outputs.details_url }}'
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -21,10 +24,32 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HASSANALRAWI_EB46F }}'
           projectId: hassanalrawi-eb46f
-      - name: Run Lighthouse against the preview URL
+
+  # Separate job so Lighthouse shows up as its own check in the PR, with a
+  # report link surfaced in the run summary (rather than buried in deploy logs).
+  lighthouse:
+    needs: build_and_preview
+    if: "${{ needs.build_and_preview.outputs.preview_url != '' }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: lhci
+        name: Run Lighthouse against the preview URL
         uses: treosh/lighthouse-ci-action@v12
         with:
-          urls: '${{ steps.deploy.outputs.details_url }}'
+          urls: '${{ needs.build_and_preview.outputs.preview_url }}'
           configPath: ./.github/lighthouse/lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
+      - name: Publish report link to the run summary
+        if: always()
+        run: |
+          {
+            echo "## Lighthouse"
+            echo "Preview: ${{ needs.build_and_preview.outputs.preview_url }}"
+            echo ""
+            echo "Report links:"
+            echo '```json'
+            echo '${{ steps.lhci.outputs.links }}'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
