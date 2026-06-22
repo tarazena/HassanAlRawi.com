@@ -34,17 +34,49 @@ export interface Social {
 
 export const socials: Social[] = [
   { label: "GH", name: "GitHub", url: "https://github.com/tarazena" },
-  { label: "IN", name: "LinkedIn", url: "https://www.linkedin.com/in/hassan-al-rawi-19112a87/" },
+  {
+    label: "IN",
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/hassan-al-rawi-19112a87/",
+  },
   { label: "TW", name: "Twitter", url: "https://twitter.com/hassanalrawi" },
-  { label: "SC", name: "SoundCloud", url: "https://soundcloud.com/hassan-ali-al-rawi" },
+  {
+    label: "SC",
+    name: "SoundCloud",
+    url: "https://soundcloud.com/hassan-ali-al-rawi",
+  },
   { label: "VI", name: "Vimeo", url: "https://vimeo.com/user18375922" },
-  { label: "FL", name: "Flickr", url: "https://www.flickr.com/photos/tarazena" },
+  {
+    label: "FL",
+    name: "Flickr",
+    url: "https://www.flickr.com/photos/tarazena",
+  },
 ];
 
 // Tech stack (subset, ordered to match the design's chip row).
 export const stack: string[] = [
-  "TypeScript", "Go", "React", "Next.js", "Node", "PostgreSQL",
-  "GraphQL", "AWS", "Docker", "Python", "Rust", "Swift",
+  "TypeScript",
+  "Go",
+  "React",
+  "Next.js",
+  "Node",
+  "PostgreSQL",
+  "GraphQL",
+  "AWS",
+  "Docker",
+  "Python",
+  "React Native",
+  "Flutter",
+  ".NET",
+  "C#",
+  "GraphQL",
+  "Terraform",
+  "SQL",
+  "Kotlin",
+  "Snowflake",
+  "Twilio",
+  "Sentry",
+  "And so much more…",
 ];
 
 export interface Discipline {
@@ -54,9 +86,21 @@ export interface Discipline {
 }
 
 export const disciplines: Discipline[] = [
-  { num: "01", title: "Development", text: "Full-stack web & product engineering — from architecture to shipped, performant interfaces." },
-  { num: "02", title: "Design", text: "Product, brand & graphic design with an engineer's eye for systems and detail." },
-  { num: "03", title: "Consulting", text: "Technical strategy & problem solving for teams that need to move fast and ship right." },
+  {
+    num: "01",
+    title: "Development",
+    text: "Full-stack web & product engineering — from architecture to shipped, performant interfaces.",
+  },
+  {
+    num: "02",
+    title: "Design",
+    text: "Product, brand & graphic design with an engineer's eye for systems and detail.",
+  },
+  {
+    num: "03",
+    title: "Consulting",
+    text: "Technical strategy & problem solving for teams that need to move fast and ship right.",
+  },
 ];
 
 export interface Project {
@@ -68,13 +112,31 @@ export interface Project {
   image: string | null;
 }
 
-// TODO: Replace these placeholders with real projects. Add an image to
-// /public and set `image` to its path to swap out the placeholder.
-const placeholderBlurb =
-  "A selected project will live here — what it is, what you shipped, and the outcome.";
+// Add an image to /public and set `image` to its path to swap out the
+// neumorphic placeholder thumbnail.
 export const projects: Project[] = [
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
-  { title: "Coming soon", blurb: placeholderBlurb, tags: ["TODO", "TODO"], href: "#", image: null },
+  {
+    title: "Topp Layer Printing",
+    blurb:
+      "A print shop in Lakewood, Ohio — digital printing, screen-printed tees, and signs & banners. I built the site end to end: marketing pages, portfolio, and the backend.",
+    tags: ["Web", "Full-stack"],
+    href: "https://topplayerprinting.com/",
+    image: null,
+  },
+  {
+    title: "Pipper",
+    blurb:
+      "A real-time gender-reveal party app — guests answer quiz questions on their phones that sync live to a TV for the final reveal. Shipped across web, mobile, and tvOS.",
+    tags: ["Web", "Mobile", "tvOS"],
+    href: "https://pip-per.com/",
+    image: null,
+  },
+  {
+    title: "Project Haulin",
+    blurb:
+      "A chill 3D trucking sim built in Unity — take a contract, back your rig onto the trailer, and haul cargo across sun-baked cities. In development for iOS & Android.",
+    tags: ["Unity", "Game", "Mobile"],
+    href: "#",
+    image: null,
+  },
 ];
