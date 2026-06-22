@@ -2,10 +2,19 @@
 .work-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; scroll-margin-top: 24px; }
 .work { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 64px; }
 .work-card {
+  position: relative;
   padding: 18px; border-radius: 24px; background: var(--surface);
-  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); transition: transform 0.25s ease;
 }
-.work-card:hover { transform: translateY(-4px); box-shadow: 11px 13px 26px var(--shd), -11px -11px 26px var(--shl); }
+/* Elevated shadow crossfades via opacity — box-shadow with var() colors
+   isn't interpolated by Chromium, so it would otherwise snap at the end. */
+.work-card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: 11px 13px 26px var(--shd), -11px -11px 26px var(--shl);
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.work-card:hover { transform: translateY(-4px); }
+.work-card:hover::after { opacity: 1; }
 .work-thumb {
   border-radius: 16px; background: var(--well); box-shadow: inset 5px 5px 11px var(--shd), inset -5px -5px 11px var(--shl);
   padding: 7px; margin-bottom: 16px;
