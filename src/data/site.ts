@@ -34,49 +34,17 @@ export interface Social {
 
 export const socials: Social[] = [
   { label: "GH", name: "GitHub", url: "https://github.com/tarazena" },
-  {
-    label: "IN",
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/hassan-al-rawi-19112a87/",
-  },
+  { label: "IN", name: "LinkedIn", url: "https://www.linkedin.com/in/hassan-al-rawi-19112a87/" },
   { label: "TW", name: "Twitter", url: "https://twitter.com/hassanalrawi" },
-  {
-    label: "SC",
-    name: "SoundCloud",
-    url: "https://soundcloud.com/hassan-ali-al-rawi",
-  },
+  { label: "SC", name: "SoundCloud", url: "https://soundcloud.com/hassan-ali-al-rawi" },
   { label: "VI", name: "Vimeo", url: "https://vimeo.com/user18375922" },
-  {
-    label: "FL",
-    name: "Flickr",
-    url: "https://www.flickr.com/photos/tarazena",
-  },
+  { label: "FL", name: "Flickr", url: "https://www.flickr.com/photos/tarazena" },
 ];
 
 // Tech stack (subset, ordered to match the design's chip row).
 export const stack: string[] = [
-  "TypeScript",
-  "Go",
-  "React",
-  "Next.js",
-  "Node",
-  "PostgreSQL",
-  "GraphQL",
-  "AWS",
-  "Docker",
-  "Python",
-  "React Native",
-  "Flutter",
-  ".NET",
-  "C#",
-  "GraphQL",
-  "Terraform",
-  "SQL",
-  "Kotlin",
-  "Snowflake",
-  "Twilio",
-  "Sentry",
-  "And so much more…",
+  "TypeScript", "Go", "React", "Next.js", "Node", "PostgreSQL",
+  "GraphQL", "AWS", "Docker", "Python", "Rust", "Swift",
 ];
 
 export interface Discipline {
@@ -86,21 +54,9 @@ export interface Discipline {
 }
 
 export const disciplines: Discipline[] = [
-  {
-    num: "01",
-    title: "Development",
-    text: "Full-stack web & product engineering — from architecture to shipped, performant interfaces.",
-  },
-  {
-    num: "02",
-    title: "Design",
-    text: "Product, brand & graphic design with an engineer's eye for systems and detail.",
-  },
-  {
-    num: "03",
-    title: "Consulting",
-    text: "Technical strategy & problem solving for teams that need to move fast and ship right.",
-  },
+  { num: "01", title: "Development", text: "Full-stack web & product engineering — from architecture to shipped, performant interfaces." },
+  { num: "02", title: "Design", text: "Product, brand & graphic design with an engineer's eye for systems and detail." },
+  { num: "03", title: "Consulting", text: "Technical strategy & problem solving for teams that need to move fast and ship right." },
 ];
 
 export interface Project {
