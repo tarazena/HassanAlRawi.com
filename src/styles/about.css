@@ -8,8 +8,8 @@
   flex: none; border-radius: 24px; background: var(--well);
   box-shadow: inset 6px 6px 13px var(--shd), inset -6px -6px 13px var(--shl); padding: 9px;
 }
-.about-photo .thumb-placeholder { width: 200px; height: 240px; border-radius: 16px; }
-.about-photo img { width: 200px; height: 240px; object-fit: cover; display: block; border-radius: 16px; }
+.about-photo .thumb-placeholder { width: 220px; height: 220px; border-radius: 16px; }
+.about-photo img { width: 220px; height: 220px; object-fit: cover; object-position: center; display: block; border-radius: 16px; }
 .about-copy { flex: 1; min-width: 0; }
 .about-title { font-family: "Sora", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: var(--strong); margin: 0 0 14px; line-height: 1.15; }
 .about-text { margin: 0 0 12px; font-size: 15px; line-height: 1.65; color: var(--mute); }
