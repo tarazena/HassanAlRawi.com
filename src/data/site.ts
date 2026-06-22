@@ -45,6 +45,8 @@ export const socials: Social[] = [
 export const stack: string[] = [
   "TypeScript", "Go", "React", "Next.js", "Node", "PostgreSQL",
   "GraphQL", "AWS", "Docker", "Python", "Rust", "Swift",
+  "React Native", "Flutter", ".NET", "C#", "Kotlin", "Terraform",
+  "SQL", "Snowflake", "Twilio", "Sentry", "And so much more…",
 ];
 
 export interface Discipline {
