@@ -5,10 +5,18 @@
 
 .post-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 64px; }
 .post-card {
+  position: relative;
   display: block; text-decoration: none; padding: 24px 26px; border-radius: 22px; background: var(--surface);
-  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); transition: transform 0.25s ease;
 }
-.post-card:hover { transform: translateY(-4px); box-shadow: 11px 13px 26px var(--shd), -11px -11px 26px var(--shl); }
+/* See selected-work.css: opacity crossfade avoids the var() box-shadow snap. */
+.post-card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: 11px 13px 26px var(--shd), -11px -11px 26px var(--shl);
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.post-card:hover { transform: translateY(-4px); }
+.post-card:hover::after { opacity: 1; }
 .post-card-meta { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 9px; }
 .post-card-title { font-family: "Sora", sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--strong); margin: 0 0 7px; }
 .post-card-desc { font-size: 14px; line-height: 1.55; color: var(--dim); margin: 0 0 14px; }
