@@ -1,10 +1,18 @@
 ---
 import "../styles/stack.css";
 import { stack } from "../data/site";
+
+// Keep the trailing "And so much more…" chip on its own centered line,
+// sized to its content rather than stretched across the row.
+const chips = stack.slice(0, -1);
+const more = stack[stack.length - 1];
 ---
 <section class="stack-section" id="stack">
   <div class="section-label">What I use</div>
   <div class="chips">
-    {stack.map((s) => <span class="chip">{s}</span>)}
+    {chips.map((s) => <span class="chip">{s}</span>)}
+  </div>
+  <div class="chips-more">
+    <span class="chip">{more}</span>
   </div>
 </section>

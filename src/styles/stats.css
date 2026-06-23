@@ -1,6 +1,8 @@
 /* Stats strip. */
 .stats { display: flex; gap: 14px; margin-bottom: 64px; }
-.stat { flex: 1; padding: 18px 22px; border-radius: 18px; background: var(--surface); box-shadow: 5px 5px 12px var(--shd), -5px -5px 12px var(--shl); }
+.stat { flex: 1; padding: 18px 22px; border-radius: 18px; background: var(--surface); box-shadow: 5px 5px 12px var(--shd), -5px -5px 12px var(--shl); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.stat:hover { transform: translateY(-4px); box-shadow: 7px 7px 16px var(--shd), -7px -7px 16px var(--shl); }
+.stat:hover .stat-num { color: var(--accent); }
 .stat-num { font-family: "Sora", sans-serif; font-size: 26px; font-weight: 700; color: var(--strong); }
 .stat-num--sm { font-size: 22px; letter-spacing: -0.01em; }
 .stat-label { font-size: 12.5px; color: var(--dim); margin-top: 2px; }

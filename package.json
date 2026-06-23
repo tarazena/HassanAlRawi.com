@@ -8,11 +8,16 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "build:resume": "node scripts/generate-resume-pdf.mjs",
+    "resume": "astro build && node scripts/generate-resume-pdf.mjs",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.8"
   },
-  "packageManager": "pnpm@11.0.9"
+  "packageManager": "pnpm@11.0.9",
+  "devDependencies": {
+    "puppeteer": "^25.1.0"
+  }
 }

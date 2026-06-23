@@ -14,6 +14,9 @@
   --faint: #a39d93;
   --accent: #41509e;
   --on-accent: #fbf9f5;
+  /* Stronger shadows for the hero art only — more contrast than the UI neumorphism. */
+  --art-shd: #a8a094;
+  --art-shl: #ffffff;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -28,4 +31,7 @@
   --faint: #807a70;
   --accent: #9aa9e6;
   --on-accent: #1f1b16;
+  /* Stronger shadows for the hero art only — more contrast than the UI neumorphism. */
+  --art-shd: #090705;
+  --art-shl: #3f3933;
 }

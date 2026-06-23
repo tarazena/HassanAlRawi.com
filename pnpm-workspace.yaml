@@ -3,6 +3,7 @@
 # sharp is used for Astro's optional image optimization.
 allowBuilds:
   esbuild: true
+  puppeteer: true
   sharp: true
 
 # Force a patched esbuild (GHSA-g7r4-m6w7-qqqr; Vite/Astro otherwise
