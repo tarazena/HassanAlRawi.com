@@ -13,6 +13,7 @@ a { color: inherit; }
 }
 @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 @keyframes floatY2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+@keyframes driftX { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
 
 .root {
   display: block;
