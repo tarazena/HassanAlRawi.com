@@ -79,7 +79,7 @@ export const projects: Project[] = [
       "A print shop in Lakewood, Ohio — digital printing, screen-printed tees, and signs & banners. I built the site end to end: marketing pages, portfolio, and the backend.",
     tags: ["Web", "Full-stack"],
     href: "https://topplayerprinting.com/",
-    image: null,
+    image: '/topplayer.png',
   },
   {
     title: "Pipper",
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       "A real-time gender-reveal party app — guests answer quiz questions on their phones that sync live to a TV for the final reveal. Shipped across web, mobile, and tvOS.",
     tags: ["Web", "Mobile", "tvOS"],
     href: "https://pip-per.com/",
-    image: null,
+    image: '/pipper.png',
   },
   {
     title: "Project Haulin",
@@ -95,6 +95,6 @@ export const projects: Project[] = [
       "A chill 3D trucking sim built in Unity — take a contract, back your rig onto the trailer, and haul cargo across sun-baked cities. In development for iOS & Android.",
     tags: ["Unity", "Game", "Mobile"],
     href: "#",
-    image: null,
+    image: '/haulin.png',
   },
 ];
