@@ -1,0 +1,40 @@
+---
+import "../styles/notfound.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+<BaseLayout title={`Page not found — ${site.name}`} description="The page you were looking for could not be found.">
+  <section class="notfound">
+    <div class="nf-float nf-float--1"></div>
+    <div class="nf-float nf-float--2"></div>
+    <div class="nf-float nf-float--3"></div>
+    <div class="nf-float nf-float--4"></div>
+
+    <div class="nf-badge">
+      <span class="nf-badge-dot"></span>
+      Error · Page not found
+    </div>
+
+    <div class="nf-digits" aria-hidden="true">
+      <div class="nf-digit">4</div>
+      <div class="nf-zero">
+        <div class="nf-zero-disc"></div>
+        <div class="nf-zero-well"></div>
+        <div class="nf-zero-orbit"><div class="nf-zero-dot"></div></div>
+      </div>
+      <div class="nf-digit">4</div>
+    </div>
+
+    <h1 class="nf-title">This page slipped through the cracks.</h1>
+    <p class="nf-text">
+      The link may be broken, or the page may have moved. Let's get you back to
+      something that exists.
+    </p>
+
+    <div class="nf-actions">
+      <a class="btn btn-primary" href="/">← Back home</a>
+      <a class="btn btn-secondary" href="/#work">View work</a>
+      <a class="btn btn-secondary" href="/#contact">Get in touch</a>
+    </div>
+  </section>
+</BaseLayout>

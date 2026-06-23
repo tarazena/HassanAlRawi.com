@@ -1,0 +1,173 @@
+/* 404 page centerpiece — neumorphic 404 with a spinning "0" disc.
+   Nav, footer, theme handling and buttons come from the shared shell. */
+.notfound {
+  position: relative;
+  flex: 1;
+  min-height: calc(100vh - 230px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 56px 0 48px;
+}
+
+/* Floating ambient art */
+.nf-float {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--surface);
+}
+.nf-float--1 {
+  top: 96px; left: 6%; width: 20px; height: 20px;
+  box-shadow: 4px 4px 9px var(--shd), -4px -4px 9px var(--shl);
+  animation: floatY 5.5s ease-in-out infinite;
+}
+.nf-float--2 {
+  top: 150px; right: 8%; width: 30px; height: 30px;
+  box-shadow: 5px 5px 11px var(--shd), -5px -5px 11px var(--shl);
+  animation: floatY2 7s ease-in-out infinite;
+}
+.nf-float--3 {
+  bottom: 36px; left: 12%; width: 14px; height: 14px;
+  background: var(--accent); opacity: 0.7;
+  animation: driftX 6s ease-in-out infinite;
+}
+.nf-float--4 {
+  bottom: 80px; right: 14%; width: 16px; height: 16px;
+  box-shadow: 3px 3px 7px var(--shd), -3px -3px 7px var(--shl);
+  animation: floatY 6.5s ease-in-out infinite;
+}
+
+/* Badge */
+.nf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 26px;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--surface);
+  box-shadow: inset 3px 3px 6px var(--shd), inset -3px -3px 6px var(--shl);
+}
+.nf-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+/* 404 digits */
+.nf-digits {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 34px;
+}
+.nf-digit {
+  width: 148px;
+  height: 188px;
+  border-radius: 32px;
+  background: var(--surface);
+  box-shadow: 9px 9px 22px var(--shd), -9px -9px 22px var(--shl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 138px;
+  line-height: 1;
+  color: var(--strong);
+  letter-spacing: -0.04em;
+}
+
+/* The "0" is a spinning neumorphic disc with an orbiting accent dot. */
+.nf-zero {
+  width: 148px;
+  height: 188px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nf-zero-disc {
+  position: absolute;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 9px 9px 22px var(--shd), -9px -9px 22px var(--shl);
+}
+.nf-zero-well {
+  position: absolute;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--well);
+  box-shadow: inset 7px 7px 15px var(--shd), inset -7px -7px 15px var(--shl);
+}
+.nf-zero-orbit {
+  position: absolute;
+  width: 148px;
+  height: 148px;
+  animation: spin 14s linear infinite;
+}
+.nf-zero-dot {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+
+/* Copy */
+.nf-title {
+  font-family: "Sora", sans-serif;
+  font-size: 38px;
+  line-height: 1.08;
+  margin: 0 0 16px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--strong);
+}
+.nf-text {
+  margin: 0 0 32px;
+  max-width: 440px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--mute);
+}
+.nf-actions {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .nf-digits { gap: 14px; }
+  .nf-digit, .nf-zero { width: 108px; height: 140px; }
+  .nf-digit { font-size: 104px; }
+  .nf-zero-disc, .nf-zero-orbit { width: 108px; height: 108px; }
+  .nf-zero-well { width: 78px; height: 78px; }
+  .nf-actions { flex-direction: column; }
+  .nf-actions > a { width: 100%; }
+}
+@media (max-width: 480px) {
+  .nf-digits { gap: 10px; }
+  .nf-digit, .nf-zero { width: 84px; height: 112px; }
+  .nf-digit { font-size: 80px; }
+  .nf-zero-disc, .nf-zero-orbit { width: 84px; height: 84px; }
+  .nf-zero-well { width: 60px; height: 60px; }
+  .nf-title { font-size: 30px; }
+}
