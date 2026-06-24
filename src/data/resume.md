@@ -10,11 +10,11 @@ linkedinUrl: https://linkedin.com/in/hassan-al-rawi-19112a87
 
 ## Summary
 
-Principal engineer with 10+ years building and shipping production software across logistics, oil & gas, fintech, and insurance. Currently leading a modernization effort at Bradford Airport Logistics. Track record of leading cross-functional teams of 4–6 engineers, architecting real-time data-streaming systems, and turning complex business workflows into scalable products. Named inventor on a patent that drove **$1M+ in first-year revenue**, shipped the official **NCAA Elite 8 iOS app**, and led development of a home-repair SaaS platform now serving 500+ customers.
+Principal Engineer with 10+ years building and shipping production software across logistics, oil & gas, fintech, and insurance. I lead cross-functional teams of 4–6 engineers, architect real-time data-streaming systems, and turn complex business workflows into scalable products. Named inventor on a patent that drove **$1M+ in first-year revenue**, shipped the official **NCAA Elite 8 iOS app**, and built a home-services SaaS platform now serving **500+ customers**.
 
 ## Core Competencies
 
-**Technical:** Distributed Systems · Real-Time Data Streaming · Cloud Architecture (AWS/Azure/GCP) · API Design (REST/gRPC/GraphQL) · System Architecture
+**Technical:** Distributed Systems · Real-Time Data Streaming · Cloud Architecture (AWS/Azure/GCP) · API Design (REST/gRPC/GraphQL) · System Architecture · CI/CD & Infrastructure-as-Code
 
 **Leadership:** Team Leadership & Mentorship · Cross-Functional Collaboration · Product & Project Management · Code & Design Reviews · Stakeholder Communication
 
@@ -23,29 +23,26 @@ Principal engineer with 10+ years building and shipping production software acro
 ### Bradford Airport Logistics — Houston, TX
 **Principal Engineer** · Sep 2025 – Present
 
-- Leading a team of engineers modernizing legacy business applications, migrating from ColdFusion to a React, React Native, and NestJS stack on AWS provisioned with Terraform.
-- Established end-to-end observability across services using Sentry and Grafana, improving incident visibility and time-to-resolution.
-- Own GitOps and DevOps operations, standardizing CI/CD and infrastructure-as-code practices across the engineering team.
-- Built a multi-agent AI pipeline (powered by Claude) that automates the path from Jira ticket to code generation, code review, and deployment — accelerating delivery and standardizing code quality across the team.
+- Lead a team modernizing legacy business applications, migrating from ColdFusion to a React, React Native, and NestJS stack on AWS provisioned with Terraform.
+- Built a multi-agent AI pipeline (powered by Claude) that automates the path from Jira ticket to code generation, review, and deployment — accelerating delivery and standardizing code quality across the team.
+- Established end-to-end observability with Sentry and Grafana, improving incident visibility and time-to-resolution.
+- Own GitOps and DevOps operations, standardizing CI/CD and infrastructure-as-code practices across engineering.
 
-### EOG Resources — Houston, TX (Onsite)
+### EOG Resources — Houston, TX
 **Lead Full Stack Developer** · Sep 2024 – Aug 2025
 
-- Led a cross-functional team of six developers delivering Oil & Gas data products, owning workflows, processes, and project execution end to end.
-- Architected multiple products across the company and established enterprise standards for process-building services adopted across teams.
-- Designed and implemented real-time data streaming and visualization solutions for Oil & Gas operations.
+- Led a cross-functional team of six delivering oil & gas data products, owning workflows, processes, and execution end to end.
+- Architected multiple products and established enterprise standards for process-building services adopted across teams.
+- Designed and implemented real-time data streaming and visualization solutions for oil & gas operations.
 - Built client-facing applications with React, Redux, Redux Saga, Material UI, WebSockets, GraphQL, TypeScript, and OpenAPI generators.
-- Streamlined developer workflows across teams, reducing friction in the build-and-ship cycle.
 
 ### Upstart — Houston, TX (Remote)
 **Senior Full Stack Developer** · Jul 2022 – Mar 2024
 
-- Mentored a cross-functional team of six engineers building Upstart's upcoming mortgage products.
-- Designed, built, and maintained backend services communicating over gRPC, Kafka, and REST.
+- Mentored a cross-functional team of six building Upstart's mortgage products.
+- Designed, built, and maintained backend services communicating over gRPC, Kafka, and REST, deployed to AWS and OpenShift via infrastructure-as-code.
 - Prototyped enterprise solutions to simplify complex business workflows using orchestration engines (Camunda, Temporal).
-- Built and deployed backend services to AWS and OpenShift using infrastructure-as-code.
-- Developed an encryption library for Python and Kotlin backed by AWS KMS, plus AWS Lambda functions (Python) to automate KMS key rotation.
-- Designed data streaming and visualization solutions for mortgage products.
+- Developed an encryption library for Python and Kotlin backed by AWS KMS, plus AWS Lambda functions to automate KMS key rotation.
 - Built client-facing apps with Next.js, React, TypeScript, Material UI, and RESTful APIs.
 
 ### Progressive Insurance — Cleveland, OH
@@ -53,26 +50,21 @@ Principal engineer with 10+ years building and shipping production software acro
 
 - Partnered with executive leadership to deliver a homeowner-services SaaS platform connecting customers with affordable repair professionals — **now serving 500+ customers at $2.5K average spend.**
 - Named inventor on a patent for the platform, contributing to **$1M+ in first-year revenue.**
-- Managed and mentored a 4-developer cross-functional team across multiple scalable, consumer-facing SaaS products.
-- Translated business requirements into technical solutions, selecting best-fit technology components with the team.
-- Designed and deployed public REST endpoints that let end-users manage and update multiple policies through the Progressive web app, improving customer-portal UX.
+- Managed and mentored a 4-developer cross-functional team across multiple consumer-facing SaaS products.
+- Designed and deployed public REST endpoints letting end-users manage multiple policies through the Progressive web app, improving customer-portal UX.
 - Led design and code reviews, driving performance improvements and process standards.
-- Built client-facing apps with React, Next.js, TypeScript, and Material UI.
 
 ### Progressive Insurance — Cleveland, OH
 **IT Apps Developer Lead** · Oct 2017 – Jan 2019
 
-- Led a team building new consumer features for progressive.com, serving millions of customers.
-- Designed and implemented features using Angular, ASP.NET, C#, Node.js, Kubernetes, Go, AWS, Splunk, and Azure DevOps.
-- Planned the product roadmap for features impacting millions of users and mentored developers on career growth.
-- Collaborated across teams and time zones to ensure quality delivery; resolved complex production issues.
-- Built front-end applications serving all progressive.com customers using React and Angular with TypeScript.
+- Led a team building new consumer features for progressive.com, serving millions of customers, and planned the product roadmap.
+- Designed and implemented features using Angular, ASP.NET, C#, Node.js, Go, Kubernetes, AWS, Splunk, and Azure DevOps.
+- Mentored developers on career growth and resolved complex production issues across teams and time zones.
 
 ### Progressive Insurance — Cleveland, OH
 **IT Apps Developer, Senior** · Jan 2015 – Oct 2017
 
-- Upgraded Progressive's internal applications for IE11 compatibility using C#, ASP.NET, jQuery, CSS, and HTML.
-- Modernized the business engine and rules for Progressive's commercial products using XML, C#, and ASP.NET.
+- Modernized the business engine and rules for Progressive's commercial products using XML, C#, and ASP.NET; upgraded internal applications for IE11 compatibility.
 
 ### Gannon University — Erie, PA
 **iOS Application Developer** · Jan 2014 – Jan 2015
@@ -83,19 +75,17 @@ Principal engineer with 10+ years building and shipping production software acro
 
 **Languages:** JavaScript, TypeScript, C#, Go, Python, Java, Kotlin, SQL
 
-**Frontend:** React, React Native, Redux, Angular, Next.js, Material UI, HTML/CSS, jQuery
+**Frontend:** React, React Native, Redux, Angular, Next.js, Material UI, HTML/CSS
 
 **Backend:** Node.js, NestJS, ASP.NET, FastAPI, Spring Boot, REST, gRPC, GraphQL
 
-**Data & Streaming:** Kafka, RabbitMQ, Data Streaming, Snowflake, MemSQL, Redis, SQL/NoSQL
+**Data & Streaming:** Kafka, RabbitMQ, Snowflake, MemSQL, Redis, SQL/NoSQL
 
 **Cloud & DevOps:** AWS, Azure, GCP, Docker, Terraform, OpenShift, Kubernetes, GitOps, CI/CD
 
 **Observability:** Sentry, Grafana, DataDog, Splunk
 
 **AI:** Claude, Multi-Agent Workflows, AI-Assisted Code Generation & Review
-
-**Integrations:** Twilio, PayPal
 
 ## Education
 
