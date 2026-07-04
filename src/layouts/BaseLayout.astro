@@ -16,6 +16,8 @@ interface Props {
   ogType?: string;
   /** Share image path under the site root. */
   ogImage?: string;
+  /** Robots directive; set "noindex" for pages like 404 that shouldn't be indexed. */
+  robots?: string;
 }
 
 const {
@@ -23,6 +25,7 @@ const {
   description = site.description,
   ogType = "website",
   ogImage = "/og.png",
+  robots,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
@@ -36,6 +39,7 @@ const ogImageURL = new URL(ogImage, site.url).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#e9e6e1" />

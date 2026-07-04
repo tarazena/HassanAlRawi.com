@@ -3,7 +3,7 @@ import "../styles/notfound.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../data/site";
 ---
-<BaseLayout title={`Page not found — ${site.name}`} description="The page you were looking for could not be found.">
+<BaseLayout title={`Page not found — ${site.name}`} description="The page you were looking for could not be found." robots="noindex">
   <section class="notfound">
     <div class="nf-float nf-float--1"></div>
     <div class="nf-float nf-float--2"></div>
