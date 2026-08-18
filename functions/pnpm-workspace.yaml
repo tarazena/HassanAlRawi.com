@@ -1,0 +1,15 @@
+allowBuilds:
+  '@firebase/util': true
+  protobufjs: true
+# Marks functions/ as its own pnpm root so installs here don't resolve
+# against the site's workspace at the repo root.
+
+# Ported from the old yarn "resolutions" (transitive-dep security pins).
+overrides:
+  uuid: ^11.1.1
+  '@tootallnate/once': ^2.0.1
+  lodash: ^4.18.1
+  semver: ^7.8.5
+  jsonwebtoken>jws: ^3.2.3
+  google-auth-library>jws: ^4.0.1
+  gtoken>jws: ^4.0.1
