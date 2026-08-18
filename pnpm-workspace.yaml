@@ -6,6 +6,11 @@ allowBuilds:
   puppeteer: true
   sharp: true
 
+minimumReleaseAgeExclude:
+  - '@astrojs/internal-helpers@0.10.3'
+  - '@astrojs/markdown-satteri@0.3.6'
+  - astro@7.2.3
+
 # Force a patched esbuild (GHSA-g7r4-m6w7-qqqr; Vite/Astro otherwise
 # resolve a vulnerable 0.27.x).
 overrides:
