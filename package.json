@@ -13,11 +13,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.2.3"
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.2"
   },
   "packageManager": "pnpm@11.22.0",
   "devDependencies": {
-    "puppeteer": "^25.8.0"
+    "puppeteer": "^25.16.0"
   }
 }

@@ -74,6 +74,14 @@ export interface Project {
 // neumorphic placeholder thumbnail.
 export const projects: Project[] = [
   {
+    title: "Sahtain",
+    blurb:
+      "A bilingual English–Arabic cooking app — recipes from the Gulf and the Levant, matched to what's already in your kitchen, with a step-by-step cook mode. Built for iOS, Android, Apple TV, and web from one codebase.",
+    tags: ["Mobile", "tvOS", "Web", "Firebase"],
+    href: "#",
+    image: "/sahtain.png",
+  },
+  {
     title: "Topp Layer Printing",
     blurb:
       "A print shop in Lakewood, Ohio — digital printing, screen-printed tees, and signs & banners. I built the site end to end: marketing pages, portfolio, and the backend.",
